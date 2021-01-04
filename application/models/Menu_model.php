@@ -47,6 +47,11 @@ class Menu_model extends CI_Model
         $this->db->where('MENU_ID_LEVEL2', $this->input->post('MENU_ID_LEVEL2'));
         $this->db->update('menu_level2', $data);
     }
+
+    public function deleteSubMenu($id)
+    {
+        $this->db->delete('menu_level2', ['MENU_ID_LEVEL2' => $id]);
+    }
 }
 
 /* End of file Menu_model.php */

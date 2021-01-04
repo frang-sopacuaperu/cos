@@ -9,6 +9,11 @@ class Auth extends CI_Controller
         $this->load->library('form_validation');
     }
 
+    // NOTES*
+    // group_hak_akses = user_role
+    // hak_akses_form = user_access_menu
+    //---------------------------------------------------------------------------//
+
     public function login()
     {
         $this->form_validation->set_rules('NAMA', 'Nama', 'trim|required|min_length[5]|max_length[30]');
@@ -144,5 +149,10 @@ class Auth extends CI_Controller
             </div>'
         );
         redirect('auth/login');
+    }
+
+    public function blocked()
+    {
+        $this->load->view('auth/blocked');
     }
 }

@@ -47,7 +47,7 @@
                         </td>
                         <td>
                             <a href="<?= base_url('menu/editsubmenu/') . $sm['MENU_ID_LEVEL2'] ?>"><button type="button" class="btn btn-primary"> Edit</button></a>
-                            <a href="#"><button class="btn btn-danger">Delete</button></a>
+                            <a href="<?= base_url('menu/deletesubmenu/') . $sm['MENU_ID_LEVEL2'] ?>"><button type="button" class="btn btn-danger" onclick="return confirm('Yakin ingin delete?')">Delete</button></a>
                         </td>
                     </tr>
                     <?php $i++; ?>
