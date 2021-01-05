@@ -5,7 +5,7 @@
     <!-- /.card-header -->
     <div class="card-body">
         <div class="mb-3">
-            <a href="<?= base_url('menu/tambahsubmenu') ?>"><button type="button" class="btn btn-primary">
+            <a href="<?= base_url('submenu/tambahsubmenu') ?>"><button type="button" class="btn btn-primary">
                     Tambah Submenu
                 </button></a>
         </div>
@@ -46,8 +46,8 @@
                             ?>
                         </td>
                         <td>
-                            <a href="<?= base_url('menu/editsubmenu/') . $sm['MENU_ID_LEVEL2'] ?>"><button type="button" class="btn btn-primary"> Edit</button></a>
-                            <a href="<?= base_url('menu/deletesubmenu/') . $sm['MENU_ID_LEVEL2'] ?>"><button type="button" class="btn btn-danger" onclick="return confirm('Yakin ingin delete?')">Delete</button></a>
+                            <a href="<?= base_url('submenu/editsubmenu/') . $sm['MENU_ID_LEVEL2'] ?>"><button type="button" class="btn btn-primary"> Edit</button></a>
+                            <a href="<?= base_url('submenu/deletesubmenu/') . $sm['MENU_ID_LEVEL2'] ?>"><button type="button" class="btn btn-danger" onclick="return confirm('Yakin ingin delete?')">Delete</button></a>
                         </td>
                     </tr>
                     <?php $i++; ?>

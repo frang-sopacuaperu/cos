@@ -5,6 +5,9 @@
 // hak_akses_form = user_access_menu
 //---------------------------------------------------------------------------//
 
+
+//lanjut ke video ke 9 access management
+
 function is_logged_in()
 {
     $ci = get_instance();

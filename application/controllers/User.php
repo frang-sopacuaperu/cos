@@ -15,7 +15,7 @@ class User extends CI_Controller
         $data['user_admin'] = $this->db->get_where('user_admin', ['NAMA' =>
         $this->session->userdata('NAMA')])->row_array();
 
-        $this->template->load('template', 'user/profile', $data);
+        $this->template->load('template', 'user/index', $data);
         // echo 'Welcome ' . $data['user_admin']['NAMA'];
     }
 }

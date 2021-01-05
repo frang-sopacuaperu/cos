@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Tambah</button>
-                <a href="<?= base_url('menu/submenu') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
+                <a href="<?= base_url('submenu') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
             </div>
         </form>
     </div>

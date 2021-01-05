@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <button type="submit" name="editsubmenu" class="btn btn-primary">Edit</button>
-                <a href="<?= base_url('menu/submenu') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
+                <a href="<?= base_url('submenu') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
             </div>
         </form>
     </div>

@@ -40,7 +40,12 @@
                                                 <img class="profile-user-img img-fluid img-circle" src="<?= base_url('assets/') ?>dist/img/user4-128x128.jpg" alt="User profile picture">
                                             </div>
                                             <h3 class="profile-username text-center"><?= $user_admin['NAMA']; ?></h3>
-                                            <p class="text-muted text-center"> <?= $user_admin['GROUP_HAK_AKSES_ID'] ?> </p>
+                                            <p class="text-muted text-center"> <?php if ($user_admin['GROUP_HAK_AKSES_ID'] == 1) {
+                                                                                    echo "Master";
+                                                                                } else {
+                                                                                    echo "User";
+                                                                                }
+                                                                                ?></p>
                                         </div>
                                         <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
 
