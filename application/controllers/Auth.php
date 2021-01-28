@@ -79,7 +79,7 @@ class Auth extends CI_Controller
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Nama!</strong> anda belum terdaftar, silahkan daftar dulu!
+                <strong>Akun!</strong> anda belum terdaftar, silahkan daftar dulu!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -108,7 +108,7 @@ class Auth extends CI_Controller
                 'NAMA' => htmlspecialchars($this->input->post('NAMA', true)),
                 'PASS' => password_hash($this->input->post('PASS'), PASSWORD_DEFAULT),
                 'IS_AKTIF' => 1,
-                'GROUP_HAK_AKSES_ID' => 1,
+                'GROUP_HAK_AKSES_ID' => 2,
                 'ALAMAT' => $this->input->post('ALAMAT'),
                 'WILAYAH_ID' => $this->input->post('WILAYAH_ID'),
                 'TELEPON' => htmlspecialchars($this->input->post('TELEPON', true)),
