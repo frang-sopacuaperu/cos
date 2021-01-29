@@ -15,15 +15,15 @@ function is_logged_in()
         redirect('auth/login');
     } else {
         $GROUP_HAK_AKSES_ID = $ci->session->userdata('GROUP_HAK_AKSES_ID');
-        $menu2 = $ci->uri->segment(1);
+        $menu1 = $ci->uri->segment(1);
 
-        $queryMenu2 = $ci->db->get_where('menu_level2', ['MENU_CAPTION' => $menu2])->row_array();
+        $queryMenu1 = $ci->db->get_where('menu_level1', ['MENU_CAPTION' => $menu1])->row_array();
 
-        $menu2_id = $queryMenu2['MENU_ID_LEVEL2'];
+        $menu1_id = $queryMenu1['MENU_ID_LEVEL1'];
 
         $userAccess = $ci->db->get_where('hak_akses_form', [
             'ID' => $GROUP_HAK_AKSES_ID,
-            'AKSES' => $menu2_id
+            'AKSES' => $menu1_id
         ]);
 
         if ($userAccess->num_rows() < 1) {

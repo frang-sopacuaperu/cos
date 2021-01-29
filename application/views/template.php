@@ -113,60 +113,222 @@
                             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                                 <!-- QUERY MENU LEVEL 1 -->
-                                <?php
-                                $hak_akses_id = $this->session->userdata('GROUP_HAK_AKSES_ID');
-                                $queryMenu1 = "SELECT `MENU_ID_LEVEL1` , `MENU_NAME`
-                                                FROM `menu_level1` JOIN `hak_akses_form`
-                                                ON `menu_level1`.`MENU_ID_LEVEL1` = `hak_akses_form`.`AKSES`
-                                                WHERE `hak_akses_form`.`ID` = $hak_akses_id
-                                                ORDER BY `hak_akses_form`.`AKSES` ASC                              
-                                ";
-                                $menu = $this->db->query($queryMenu1)->result_array();
-                                ?>
-
-                                <?php foreach ($menu as $m) : ?>
+                                <?php if ($user_admin['GROUP_HAK_AKSES_ID'] == 1) : ?>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('dashboard'); ?>" class="nav-link active">
+                                            <p>
+                                                Master
+                                            </p>
+                                        </a>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Barang</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Biaya</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Customer</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Golongan</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Jasa</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Lokasi</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Multi Price</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Salesman</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Sub Golongan</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Supplier</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Wilayah</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li class="nav-item">
                                         <a href="#" class="nav-link active">
                                             <p>
-                                                <?= $m['MENU_NAME']; ?>
+                                                Transaksi
                                             </p>
                                         </a>
-
-                                        <?php
-                                        $menu_id_1 = $m['MENU_ID_LEVEL1'];
-                                        $queryMenu2 = " SELECT * FROM `menu_level2`
-                                    WHERE `MENU_ID_LEVEL1` = $menu_id_1
-                                    AND `STATUS` = 1
-                                    ORDER BY `MENU_NAME` ASC
-                                    ";
-                                        $menu_2 = $this->db->query($queryMenu2)->result_array();
-                                        ?>
-
-                                        <?php foreach ($menu_2 as $m2) : ?>
-                                            <?php if ($title == $m2['MENU_NAME']) : ?>
-                                                <ul class="nav">
-                                                    <li class="nav-item">
-                                                        <a href="<?= base_url($m2['MENU_CAPTION']) ?>" class="nav-link active">
-                                                            <i class="far fa-circle nav-icon"></i>
-                                                            <p><?= $m2['MENU_NAME'] ?></p>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            <?php else : ?>
-                                                <ul class="nav">
-                                                    <li class="nav-item">
-                                                        <a href="<?= base_url($m2['MENU_CAPTION']) ?>" class="nav-link">
-                                                            <i class="far fa-circle nav-icon"></i>
-                                                            <p><?= $m2['MENU_NAME'] ?></p>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-
-                                    <?php endforeach; ?>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="<?= base_url('user'); ?>" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Profile User</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Pemasukan</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Pembelian</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Pengeluaran</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Penjualan</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Pelunasan Hutang</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Pembayaran Hutang</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Retur Pembelian</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Retur Penjualan</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Tanda Keluar Barang</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Tanda Terima Barang</p>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-
+                                <?php else : ?>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            <p>
+                                                Transaksi
+                                            </p>
+                                        </a>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="<?= base_url('user'); ?>" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Profile User</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Pembelian</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <?php endif; ?>
                             </ul>
                         </nav>
                         <!-- /.sidebar-menu -->
