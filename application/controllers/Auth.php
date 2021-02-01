@@ -1,12 +1,21 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use GuzzleHttp\Client;
+
 class Auth extends CI_Controller
 {
+    private $_client;
+
     public function __construct()
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->model('Auth_model', 'auth');
+
+        $this->_client = new Client([
+            'base_uri' => 'http://localhost/api-pos-server/api/',
+        ]);
     }
 
     // NOTES*
@@ -34,21 +43,47 @@ class Auth extends CI_Controller
         $nama = $this->input->post('NAMA');
         $pass = $this->input->post('PASS');
 
+        $cek_login = $this->auth->cek_login($nama);
+
         $user = $this->db->get_where('user_admin', [
             'NAMA' => $nama
         ])->row_array();
 
+        // token statis
+        $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfQ0xBSU0iLCJhdWQiOiJUSEVfQVVESUVOQ0UiLCJpYXQiOjE2MTIxNTA5MzEsIm5iZiI6MTYxMjE1MDk0MSwiZXhwIjoxNjEyMTU0NTMxLCJkYXRhIjp7Ik5BTUEiOiJBZG1pbiIsIklTX0FLVElGIjoiMSIsIkdST1VQX0hBS19BS1NFU19JRCI6IjEiLCJBTEFNQVQiOiJKYWthcnRhIiwiV0lMQVlBSF9JRCI6IjEiLCJURUxFUE9OIjoiMDgyMTEyMzQ1Njc4IiwiTk9fUkVLRU5JTkciOiIyMjIyMjIyMjIyMjIyIiwiR0FKSV9QT0tPSyI6IjAiLCJJU19TSE9XX0lORk9fSFVUQU5HX1BJVVRBTkciOiIwIiwiSVNfU0hPV19QUk9GSVQiOiIwIiwiSVNfQUxMT1dfVVBEQVRFX1BMQUZPTiI6IjAifX0.PJDEzmZY1YKSGxyzn_msPghyRfnGl_UwTkb8Tv3rG0Q';
+        $headers = [
+            'Authorization' => 'Bearer ' . $token,
+            'Accept'        => 'application/json',
+        ];
+
         if ($user) {
             if ($user['IS_AKTIF'] == 1) {
-                if (password_verify($pass, $user['PASS'])) {
+                if (password_verify($pass, $cek_login['PASS'])) {
                     $data = [
                         'NAMA' => $user['NAMA'],
                         'GROUP_HAK_AKSES_ID' => $user['GROUP_HAK_AKSES_ID']
                     ];
-                    $this->session->set_userdata($data);
+                    $this->session->set_userdata($data, $headers);
+
                     if ($user['GROUP_HAK_AKSES_ID'] == 1) {
+                        $response = $this->_client->request('POST', 'auth/login', [
+                            'form_params' => $data,
+                            'headers' => $headers,
+                        ]);
+
+                        $result = json_decode($response->getBody()->getContents(), true);
+
+                        return $result['data'];
                         redirect('dashboard');
                     } else {
+                        $response = $this->_client->request('POST', 'auth/login', [
+                            'form_params' => $data,
+                            'headers' => $headers,
+                        ]);
+
+                        $result = json_decode($response->getBody()->getContents(), true);
+
+                        return $result['data'];
                         redirect('user');
                     }
                 } else {
