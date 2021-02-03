@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 use GuzzleHttp\Client;
 
-class Auth extends CI_Controller
+class Auth extends MY_Controller
 {
     private $_client;
 
@@ -35,6 +35,7 @@ class Auth extends CI_Controller
             $this->load->view('auth/login', $data);
         } else {
             $this->_login();
+            $this->verify();
         }
     }
 
@@ -43,85 +44,28 @@ class Auth extends CI_Controller
         $nama = $this->input->post('NAMA');
         $pass = $this->input->post('PASS');
 
-        $cek_login = $this->auth->cek_login($nama);
+        $data = [
+            'NAMA' => $nama,
+            'PASS' => $pass,
+        ];
 
-        $user = $this->db->get_where('user_admin', [
-            'NAMA' => $nama
-        ])->row_array();
-
-        // token statis
-        $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfQ0xBSU0iLCJhdWQiOiJUSEVfQVVESUVOQ0UiLCJpYXQiOjE2MTIxNTA5MzEsIm5iZiI6MTYxMjE1MDk0MSwiZXhwIjoxNjEyMTU0NTMxLCJkYXRhIjp7Ik5BTUEiOiJBZG1pbiIsIklTX0FLVElGIjoiMSIsIkdST1VQX0hBS19BS1NFU19JRCI6IjEiLCJBTEFNQVQiOiJKYWthcnRhIiwiV0lMQVlBSF9JRCI6IjEiLCJURUxFUE9OIjoiMDgyMTEyMzQ1Njc4IiwiTk9fUkVLRU5JTkciOiIyMjIyMjIyMjIyMjIyIiwiR0FKSV9QT0tPSyI6IjAiLCJJU19TSE9XX0lORk9fSFVUQU5HX1BJVVRBTkciOiIwIiwiSVNfU0hPV19QUk9GSVQiOiIwIiwiSVNfQUxMT1dfVVBEQVRFX1BMQUZPTiI6IjAifX0.PJDEzmZY1YKSGxyzn_msPghyRfnGl_UwTkb8Tv3rG0Q';
         $headers = [
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer ',
             'Accept'        => 'application/json',
         ];
 
-        if ($user) {
-            if ($user['IS_AKTIF'] == 1) {
-                if (password_verify($pass, $cek_login['PASS'])) {
-                    $data = [
-                        'NAMA' => $user['NAMA'],
-                        'GROUP_HAK_AKSES_ID' => $user['GROUP_HAK_AKSES_ID']
-                    ];
-                    $this->session->set_userdata($data, $headers);
+        $response = $this->_client->request('POST', 'auth/login', [
+            'form_params' => $data,
+            'headers' => $headers,
+        ]);
 
-                    if ($user['GROUP_HAK_AKSES_ID'] == 1) {
-                        $response = $this->_client->request('POST', 'auth/login', [
-                            'form_params' => $data,
-                            'headers' => $headers,
-                        ]);
+        $result = json_decode($response->getBody()->getContents(), true);
 
-                        $result = json_decode($response->getBody()->getContents(), true);
+        $this->session->set_userdata('Bearer Token', $result['token']);
 
-                        return $result['data'];
-                        redirect('dashboard');
-                    } else {
-                        $response = $this->_client->request('POST', 'auth/login', [
-                            'form_params' => $data,
-                            'headers' => $headers,
-                        ]);
-
-                        $result = json_decode($response->getBody()->getContents(), true);
-
-                        return $result['data'];
-                        redirect('user');
-                    }
-                } else {
-                    $this->session->set_flashdata(
-                        'message',
-                        '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>PASSWORD!</strong> anda salah, coba lagi!
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>'
-                    );
-                    redirect('auth/login');
-                }
-            } else {
-                $this->session->set_flashdata(
-                    'message',
-                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Nama!</strong> anda belum aktif, silahkan hubungi admin!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>'
-                );
-                redirect('auth/login');
-            }
-        } else {
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Akun!</strong> anda belum terdaftar, silahkan daftar dulu!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>'
-            );
-            redirect('auth/login');
-        }
+        $data['token'] = $this->session->userdata('Bearer Token');
+        // var_dump($data);
+        return $result;
     }
 
     public function registration()
@@ -172,7 +116,6 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('NAMA');
         $this->session->unset_userdata('GROUP_HAK_AKSES_ID');
-
 
         $this->session->set_flashdata(
             'message',
