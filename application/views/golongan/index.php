@@ -23,19 +23,21 @@
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($data as $gol) : ?>
-                    <tr>
-                        <td><?= $i; ?></td>
-                        <td><?= $gol['KODE']; ?></td>
-                        <td><?= $gol['KETERANGAN']; ?></td>
-                        <td>
-                            <a href="<?= base_url('golongan/gol_id/') . $gol['KODE']; ?>"><button class="btn btn-primary">Detail</button></a>
-                            <a href="<?= base_url('golongan/edit_gol/') . $gol['KODE']; ?>"><button class="btn btn-primary">Edit</button></a>
-                            <a href="<?= base_url('golongan/delete_gol/') . $gol['KODE']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>
-                        </td>
-                    </tr>
-                    <?php $i++; ?>
-                <?php endforeach; ?>
+                <?php if ($status == true) : ?>
+                    <?php foreach ($data as $gol) : ?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td><?= $gol['KODE']; ?></td>
+                            <td><?= $gol['KETERANGAN']; ?></td>
+                            <td>
+                                <a href="<?= base_url('golongan/edit_gol/') . $gol['KODE']; ?>"><button class="btn btn-primary">Edit</button></a>
+                                <a href="<?= base_url('golongan/delete_gol/') . $gol['KODE']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
+                <?php else : echo $message; ?>
+                <?php endif; ?>
             </tbody>
 
         </table>

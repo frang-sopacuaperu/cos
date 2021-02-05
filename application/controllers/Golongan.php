@@ -12,8 +12,8 @@ class Golongan extends MY_Controller
     {
         $response = $this->_client->request('GET', 'golongan');
 
-        $data = json_decode($response->getBody()->getContents(), true);
-        $this->template->load('template', 'golongan/index', $data);
+        $result = json_decode($response->getBody()->getContents(), true);
+        $this->template->load('template', 'golongan/index', $result);
     }
 
     public function create_gol()
@@ -48,8 +48,22 @@ class Golongan extends MY_Controller
         }
     }
 
-    public function gol_id($kode)
+    // public function gol_id($kode)
+    // {
+    //     $response = $this->_client->request('GET', 'golongan', [
+    //         'query' => [
+    //             'KODE' => $kode
+    //         ]
+    //     ]);
+
+    //     $result = json_decode($response->getBody()->getContents(), true);
+    //     $result['data'] = $result['data'][0];
+    //     $this->template->load('template', 'golongan/detail', $result);
+    // }
+
+    public function edit_gol($kode)
     {
+
         $response = $this->_client->request('GET', 'golongan', [
             'query' => [
                 'KODE' => $kode
@@ -57,18 +71,12 @@ class Golongan extends MY_Controller
         ]);
 
         $result = json_decode($response->getBody()->getContents(), true);
-        $data = $result['data'][0];
-        // var_dump($data);
-        $this->template->load('template', 'golongan/detail', $data);
-    }
-
-    public function edit_gol($kode)
-    {
+        $result['data'] = $result['data'][0];
 
         $this->form_validation->set_rules('KETERANGAN', 'KETERANGAN', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->template->load('template', 'golongan/edit');
+            $this->template->load('template', 'golongan/edit', $result);
         } else {
             $ket = $this->input->post('KETERANGAN');
 
@@ -80,12 +88,6 @@ class Golongan extends MY_Controller
             ]);
 
             json_decode($response->getBody()->getContents(), true);
-
-            $array = array(
-                'key' => 'value'
-            );
-
-            $this->session->set_userdata($array);
 
             $this->session->set_flashdata(
                 'message',
