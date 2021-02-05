@@ -92,6 +92,6 @@ class Submenu extends CI_Controller
             </button>
             </div>'
         );
-        redirect('dsubmenu');
+        redirect('submenu');
     }
 }

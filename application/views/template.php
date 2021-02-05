@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>COS | <?= $title; ?></title>
+    <title>COS | Web App</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- DataTables -->
@@ -63,19 +63,18 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><?= $title ?></a>
+            <a class="navbar-brand" href="#">COS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item active mr-2">
-                        <?php if ($user_admin['GROUP_HAK_AKSES_ID'] == 1) : ?>
-                            <a href="<?= base_url('dashboard') ?>" class="nav-link"><i class="fab fa-keycdn"> Master</i></a>
-                        <?php else : ?>
-                            <a href="<?= base_url('user') ?>" class="nav-link"><i class="fas fa-user"> Profile</i></a>
-                        <?php endif; ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url('dashboard') ?>" class="nav-link"><i class="fab fa-keycdn"> Master</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('user') ?>" class="nav-link"><i class="fas fa-user"> Profile</i></a>
                     </li>
                     <li class="nav-item mr-2">
                         <a href="" class="nav-link"><i class="fas fa-comments-dollar"> Transaksi</i></a>
@@ -113,222 +112,197 @@
                             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                                 <!-- QUERY MENU LEVEL 1 -->
-                                <?php if ($user_admin['GROUP_HAK_AKSES_ID'] == 1) : ?>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('dashboard'); ?>" class="nav-link active">
-                                            <p>
-                                                Master
-                                            </p>
-                                        </a>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Barang</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Biaya</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Customer</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="<?= base_url('golongan'); ?>" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Golongan</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Jasa</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Lokasi</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Multi Price</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Salesman</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Sub Golongan</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Supplier</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Wilayah</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link active">
-                                            <p>
-                                                Transaksi
-                                            </p>
-                                        </a>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="<?= base_url('user'); ?>" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Profile User</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Pemasukan</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Pembelian</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Pengeluaran</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Penjualan</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Pelunasan Hutang</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Pembayaran Hutang</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Retur Pembelian</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Retur Penjualan</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Tanda Keluar Barang</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Tanda Terima Barang</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                <?php else : ?>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link active">
-                                            <p>
-                                                Transaksi
-                                            </p>
-                                        </a>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="<?= base_url('user'); ?>" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Profile User</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a href="" class="nav-link">
-                                                    <i class="far fa-circle nav-icon"></i>
-                                                    <p>Pembelian</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                <?php endif; ?>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('dashboard'); ?>" class="nav-link active">
+                                        <p>
+                                            Master
+                                        </p>
+                                    </a>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Barang</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Biaya</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Customer</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('golongan'); ?>" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Golongan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Jasa</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Lokasi</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Multi Price</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Salesman</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Sub Golongan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Supplier</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Wilayah</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active">
+                                        <p>
+                                            Transaksi
+                                        </p>
+                                    </a>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('user'); ?>" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Profile User</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Pemasukan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Pembelian</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Pengeluaran</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Penjualan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Pelunasan Hutang</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Pembayaran Hutang</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Retur Pembelian</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Retur Penjualan</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Tanda Keluar Barang</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Tanda Terima Barang</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </nav>
                         <!-- /.sidebar-menu -->

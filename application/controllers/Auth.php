@@ -1,21 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-use GuzzleHttp\Client;
-
 class Auth extends MY_Controller
 {
-    private $_client;
 
     public function __construct()
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model('Auth_model', 'auth');
-
-        $this->_client = new Client([
-            'base_uri' => 'http://localhost/api-pos-server/api/',
-        ]);
     }
 
     // NOTES*
@@ -35,7 +27,6 @@ class Auth extends MY_Controller
             $this->load->view('auth/login', $data);
         } else {
             $this->_login();
-            $this->verify();
         }
     }
 
@@ -64,8 +55,7 @@ class Auth extends MY_Controller
         $this->session->set_userdata('Bearer Token', $result['token']);
 
         $data['token'] = $this->session->userdata('Bearer Token');
-        // var_dump($data);
-        return $result;
+        redirect('dashboard');
     }
 
     public function registration()
@@ -116,6 +106,7 @@ class Auth extends MY_Controller
     {
         $this->session->unset_userdata('NAMA');
         $this->session->unset_userdata('GROUP_HAK_AKSES_ID');
+        $this->session->unset_userdata('Bearer Token');
 
         $this->session->set_flashdata(
             'message',

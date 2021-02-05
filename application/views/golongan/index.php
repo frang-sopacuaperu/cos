@@ -1,11 +1,11 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Managemen Menu</h3>
+        <h3 class="card-title">Golongan</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         <div class="mb-3">
-            <a href="<?= base_url('golongan/tambahgol') ?>"><button type="button" class="btn btn-primary">
+            <a href="<?= base_url('golongan/create_gol') ?>"><button type="button" class="btn btn-primary">
                     Tambah Golongan
                 </button></a>
         </div>
@@ -23,14 +23,15 @@
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($golongan as $gol) : ?>
+                <?php foreach ($data as $gol) : ?>
                     <tr>
                         <td><?= $i; ?></td>
                         <td><?= $gol['KODE']; ?></td>
                         <td><?= $gol['KETERANGAN']; ?></td>
                         <td>
-                            <a href="<?= base_url('golongan/editgol/') . $gol['KODE']; ?>"><button class="btn btn-primary">Edit</button></a>
-                            <a href="<?= base_url('golongan/deletegol/') . $gol['KODE']; ?>"><button class="btn btn-danger">Delete</button></a>
+                            <a href="<?= base_url('golongan/gol_id/') . $gol['KODE']; ?>"><button class="btn btn-primary">Detail</button></a>
+                            <a href="<?= base_url('golongan/edit_gol/') . $gol['KODE']; ?>"><button class="btn btn-primary">Edit</button></a>
+                            <a href="<?= base_url('golongan/delete_gol/') . $gol['KODE']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>
                         </td>
                     </tr>
                     <?php $i++; ?>

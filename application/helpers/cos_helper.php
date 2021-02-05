@@ -10,6 +10,8 @@
 
 function is_logged_in()
 {
+    return true;
+    /*
     $ci = get_instance();
     if (!$ci->session->userdata('NAMA')) {
         redirect('auth/login');
@@ -30,4 +32,5 @@ function is_logged_in()
             redirect('auth/blocked');
         }
     }
+    */
 }
