@@ -7,7 +7,6 @@ class Auth extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
     }
 
     // NOTES*
@@ -65,30 +64,33 @@ class Auth extends MY_Controller
             'min_length' => 'Password terlalu pendek!'
         ]);
         $this->form_validation->set_rules('ALAMAT', 'Alamat', 'trim|required');
-        $this->form_validation->set_rules('WILAYAH_ID', 'Wilayah', 'trim|required');
-        $this->form_validation->set_rules('TELEPON', 'Telepon', 'trim|required|numeric');
-        $this->form_validation->set_rules('NO_REKENING', 'No. Rekening', 'trim|required|numeric');
+        $this->form_validation->set_rules('TELEPON', 'Telepon', 'trim|required|numeric', [
+            'numeric' => 'Isian harus angka!'
+        ]);
+        $this->form_validation->set_rules('NO_REKENING', 'No. Rekening', 'trim|required|numeric', [
+            'numeric' => 'Isian harus angka!'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'User Registration';
             $this->load->view('auth/registration', $data);
         } else {
-            $data = [
-                'NAMA' => htmlspecialchars($this->input->post('NAMA', true)),
-                'PASS' => password_hash($this->input->post('PASS'), PASSWORD_DEFAULT),
+            $array = [
+                'NAMA' => $this->input->post('NAMA'),
+                'PASS' => $this->input->post('PASS'),
                 'IS_AKTIF' => 1,
                 'GROUP_HAK_AKSES_ID' => 2,
                 'ALAMAT' => $this->input->post('ALAMAT'),
-                'WILAYAH_ID' => $this->input->post('WILAYAH_ID'),
-                'TELEPON' => htmlspecialchars($this->input->post('TELEPON', true)),
-                'NO_REKENING' => htmlspecialchars($this->input->post('NO_REKENING', true)),
-                'GAJI_POKOK' => 0,
-                'IS_SHOW_INFO_HUTANG_PIUTANG' => 0,
-                'IS_SHOW_PROFIT' => 0,
-                'IS_ALLOW_UPDATE_PLAFON' => 0,
+                'TELEPON' => $this->input->post('TELEPON'),
+                'NO_REKENING' => $this->input->post('NO_REKENING'),
             ];
 
-            $this->db->insert('user_admin', $data);
+            $response = $this->_client->request('POST', 'auth/register', [
+                'form_params' => $array,
+            ]);
+
+            json_decode($response->getBody()->getContents(), true);
+
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-success alert-dismissible fade show" role="alert">

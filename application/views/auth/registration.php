@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= base_url() ?>assets/index2.html"><b>New</b> Account</a>
+            <a href=""><b>New</b> Account</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -42,10 +42,6 @@
                     <div class="form-group mb-2">
                         <input type="text" id="ALAMAT" name="ALAMAT" class="form-control form-control-user" value="<?= set_value('ALAMAT') ?>" placeholder="Alamat">
                         <?= form_error('ALAMAT', '<small class="text-danger pl-3">', '</small>'); ?>
-                    </div>
-                    <div class="form-group mb-2">
-                        <input type="text" id="WILAYAH_ID" name="WILAYAH_ID" class="form-control form-control-user" value="<?= set_value('WILAYAH_ID') ?>" placeholder="Wilayah">
-                        <?= form_error('WILAYAH_ID', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group mb-2">
                         <input type="text" id="TELEPON" name="TELEPON" class="form-control form-control-user" value="<?= set_value('TELEPON') ?>" placeholder="Telepon">
