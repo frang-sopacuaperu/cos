@@ -73,9 +73,6 @@
                     <li class="nav-item">
                         <a href="<?= base_url('dashboard') ?>" class="nav-link"><i class="fab fa-keycdn"> Master</i></a>
                     </li>
-                    <li class="nav-item">
-                        <a href="<?= base_url('user') ?>" class="nav-link"><i class="fas fa-user"> Profile</i></a>
-                    </li>
                     <li class="nav-item mr-2">
                         <a href="" class="nav-link"><i class="fas fa-comments-dollar"> Transaksi</i></a>
                     </li>
@@ -143,6 +140,11 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="<?= base_url('lokasi'); ?>" class="nav-link active">
+                                        Lokasi
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="<?= base_url('multiprice'); ?>" class="nav-link active">
                                         Multi Price
                                     </a>
@@ -153,7 +155,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('sub-golongan'); ?>" class="nav-link active">
+                                    <a href="<?= base_url('sub_golongan'); ?>" class="nav-link active">
                                         Sub Golongan
                                     </a>
                                 </li>
@@ -170,11 +172,6 @@
                                 <li class="nav-item">
                                     <a href="#" class="nav-link btn-dark text-white">
                                         Transaksi
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('user'); ?>" class="nav-link active">
-                                        Profile User
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -198,32 +195,32 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('pelunasan-hutang'); ?>" class="nav-link active">
+                                    <a href="<?= base_url('pelunasan_hutang'); ?>" class="nav-link active">
                                         Pelunasan Hutang
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('pembayaran-hutang'); ?>" class="nav-link active">
+                                    <a href="<?= base_url('pembayaran_hutang'); ?>" class="nav-link active">
                                         Pembayaran Hutang
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('retur-pembelian'); ?>" class="nav-link active">
+                                    <a href="<?= base_url('retur_pembelian'); ?>" class="nav-link active">
                                         Retur Pembelian
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('retur-penjualan'); ?>" class="nav-link active">
+                                    <a href="<?= base_url('retur_penjualan'); ?>" class="nav-link active">
                                         Retur Penjualan
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('barang-keluar'); ?>" class="nav-link active">
+                                    <a href="<?= base_url('barang_keluar'); ?>" class="nav-link active">
                                         Tanda Keluar Barang
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('barang-terima'); ?>" class="nav-link active">
+                                    <a href="<?= base_url('barang_terima'); ?>" class="nav-link active">
                                         Tanda Terima Barang
                                     </a>
                                 </li>
