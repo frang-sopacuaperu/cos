@@ -94,10 +94,10 @@
 
 
     <div class="row mt-5">
-        <div class="col-sm-6 col-lg-8 themed-grid-col">
+        <div class="col-sm-6 col-lg-10 themed-grid-col">
             <?= $contents ?>
         </div>
-        <div class="col-sm-6 col-lg-4 themed-grid-col">
+        <div class="col-sm-6 col-lg-2 themed-grid-col">
             <div class="card">
                 <div class="card-body">
 
