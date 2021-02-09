@@ -83,12 +83,9 @@ class Customer extends MY_Controller
 
     public function edit_customer($kode)
     {
-        // belum berhasil panggil get wilayah dengan foreach di view editnya
-
         $response = $this->_client->request('GET', 'wilayah');
 
         $results = json_decode($response->getBody()->getContents(), true);
-        // --------------------------------------------------------------------------
 
         $response = $this->_client->request('GET', 'customer', [
             'query' => [
@@ -98,6 +95,7 @@ class Customer extends MY_Controller
 
         $result = json_decode($response->getBody()->getContents(), true);
         $result['data'] = $result['data'][0];
+        $result['wilayah'] = $results['data'];
 
         $this->form_validation->set_rules('NAMA', 'NAMA', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('ALAMAT', 'ALAMAT', 'trim|required|min_length[4]');

@@ -32,7 +32,7 @@ class Supplier extends MY_Controller
         $this->form_validation->set_rules('DEF', 'DEF', 'trim');
         $this->form_validation->set_rules('ALAMAT2', 'ALAMAT2', 'trim|min_length[4]');
         $this->form_validation->set_rules('KODE_BARCODE', 'KODE_BARCODE', 'trim|required|numeric');
-        $this->form_validation->set_rules('PLAFON_HUTANG', 'PLAFON_HUTANG', 'trim|required|numeric');
+        $this->form_validation->set_rules('PLAFON_HUTANG', 'PLAFON_HUTANG', 'trim|numeric');
         // $this->form_validation->set_rules('TOTAL_HUTANG', 'TOTAL_HUTANG', 'trim|required');
         // $this->form_validation->set_rules('TOTAL_PELUNASAN_HUTANG', 'TOTAL_PELUNASAN_HUTANG', 'trim|required');
         $this->form_validation->set_rules('TELEPON', 'TELEPON', 'trim|required|numeric');
@@ -104,7 +104,7 @@ class Supplier extends MY_Controller
         $this->form_validation->set_rules('DEF', 'DEF', 'trim');
         $this->form_validation->set_rules('ALAMAT2', 'ALAMAT2', 'trim|min_length[4]');
         $this->form_validation->set_rules('KODE_BARCODE', 'KODE_BARCODE', 'trim|required|numeric');
-        $this->form_validation->set_rules('PLAFON_PIUTANG', 'PLAFON_PIUTANG', 'trim|required|numeric');
+        $this->form_validation->set_rules('PLAFON_PIUTANG', 'PLAFON_PIUTANG', 'trim|numeric');
         // $this->form_validation->set_rules('TOTAL_PIUTANG', 'TOTAL_PIUTANG', 'trim|required');
         // $this->form_validation->set_rules('TOTAL_PEMBAYARAN_PIUTANG', 'TOTAL_PEMBAYARAN_PIUTANG', 'trim|required');
         $this->form_validation->set_rules('KOTA', 'KOTA', 'trim|required');

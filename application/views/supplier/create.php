@@ -60,6 +60,10 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <input type="text" class="form-control" name="PLAFON_HUTANG" id="PLAFON_HUTANG" placeholder="Plafon Hutang" value="<?= set_value('PLAFON_HUTANG') ?>">
+                        <small class=" form-text text-danger"><?= form_error('PLAFON_HUTANG'); ?></small>
+                    </div>
+                    <div class="form-group">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" name="DEF" id="DEF" value="1" checked>
                             <label class="form-check-label" for="DEF">Default</label>
