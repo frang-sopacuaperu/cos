@@ -6,7 +6,7 @@
             <form action="" method="POST">
                 <div class="card-body">
                     <div class="form-group d-flex">
-                        <div class="">Wilayah</div>
+                        <div class="col-sm-2">Wilayah</div>
                         <div class="col-sm-10">
                             <select name="WILAYAH_ID" id="WILAYAH_ID" class="form-select">
                                 <option value="">Pilih Wilayah</option>
@@ -22,7 +22,7 @@
                         <small class=" form-text text-danger"><?= form_error('WILAYAH_ID'); ?></small>
                     </div>
                     <div class="form-group d-flex">
-                        <div class="">Kode</div>
+                        <div class="col-sm-2">Kode</div>
                         <div class="col-sm-5 py-1">
                             <input type="text" class="form-control" name="KODE" id="KODE" placeholder="Kode Customer" value="<?= $data['KODE'] ?>" disabled>
                             <small class=" form-text text-danger"><?= form_error('KODE'); ?></small>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="form-group d-flex">
-                        <div class="">Nama</div>
+                        <div class="col-sm-2">Nama</div>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="NAMA" id="NAMA" placeholder="Nama" value="<?= $data['NAMA'] ?>">
                             <small class=" form-text text-danger"><?= form_error('NAMA'); ?></small>
