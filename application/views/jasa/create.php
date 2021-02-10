@@ -1,7 +1,6 @@
-<div class="col-md-6 py-3 px-3">
-    <h1 class="h3 text-gray-800">Tambah Jasa Baru</h1>
-    <hr>
+<div class="col-md-6">
     <div class="card">
+        <div class="card-header">Tambah Jasa Baru</div>
         <form action="" method="POST">
             <div class="card-body">
                 <div class="form-group">
@@ -13,7 +12,7 @@
                     <small class=" form-text text-danger"><?= form_error('KETERANGAN'); ?></small>
                 </div>
                 <button type="submit" class="btn btn-primary">Tambah</button>
-                <a href="<?= base_url('wilayah') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
+                <a href="<?= base_url('jasa') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
             </div>
         </form>
     </div>

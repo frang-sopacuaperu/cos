@@ -41,8 +41,8 @@
                             <td><?= $customer['KODE']; ?></td>
                             <td><?= $customer['NAMA']; ?></td>
                             <td><?= $customer['JATUH_TEMPO']; ?></td>
-                            <td><?= $customer['PLAFON_PIUTANG']; ?></td>
-                            <td><?= $customer['TOTAL_PIUTANG']; ?></td>
+                            <td>Rp. <?= number_format($customer['PLAFON_PIUTANG'], 0, ',', '.'); ?></td>
+                            <td>Rp. <?= number_format($customer['TOTAL_PIUTANG'], 0, ',', '.'); ?></td>
                             <td><?= $customer['WILAYAH_ID']; ?></td>
                             <td>
                                 <?php if ($customer['DEF'] == null) : {
@@ -55,7 +55,7 @@
                             </td>
                             <td><?= $customer['JENIS_ANGGOTA']; ?></td>
                             <td>
-                                <a href="<?= base_url('customer/edit_customer/') . $customer['KODE']; ?>"><button class="btn btn-primary">Edit</button></a>
+                                <a href="<?= base_url('customer/edit_customer/') . $customer['KODE']; ?>"><button class="btn btn-primary my-2">Edit</button></a>
                                 <a href="<?= base_url('customer/delete_customer/') . $customer['KODE']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>

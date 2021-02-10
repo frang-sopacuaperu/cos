@@ -1,8 +1,7 @@
 <div class="col-md-10 py-3 px-3">
-    <h1 class="h3 text-gray-800">Edit Customer</h1>
-    <hr>
     <div class="card">
         <?php if ($status == true) : ?>
+            <div class="card-header">Edit Customer</div>
             <form action="" method="POST">
                 <div class="card-body">
                     <div class="form-group d-flex">

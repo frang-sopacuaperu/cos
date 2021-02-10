@@ -40,12 +40,12 @@
                             <td><?= $supplier['KODE']; ?></td>
                             <td><?= $supplier['NAMA']; ?></td>
                             <td><?= $supplier['JATUH_TEMPO']; ?></td>
-                            <td><?= $supplier['PLAFON_HUTANG']; ?></td>
-                            <td><?= $supplier['TOTAL_HUTANG']; ?></td>
+                            <td>Rp. <?= number_format($supplier['PLAFON_HUTANG'], 0, ',', '.'); ?></td>
+                            <td>Rp. <?= number_format($supplier['TOTAL_HUTANG'], 0, ',', '.'); ?></td>
                             <td><?= $supplier['WILAYAH_ID']; ?></td>
                             <td><?= $supplier['DEF']; ?></td>
                             <td>
-                                <a href="<?= base_url('supplier/edit_supplier/') . $supplier['KODE']; ?>"><button class="btn btn-primary">Edit</button></a>
+                                <a href="<?= base_url('supplier/edit_supplier/') . $supplier['KODE']; ?>"><button class="btn btn-primary my-2">Edit</button></a>
                                 <a href="<?= base_url('supplier/delete_supplier/') . $supplier['KODE']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>

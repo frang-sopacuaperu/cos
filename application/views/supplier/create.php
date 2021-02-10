@@ -1,8 +1,7 @@
-<div class="col-md-10 py-3 px-3">
-    <h1 class="h3 text-gray-800">Tambah Supplier Baru</h1>
-    <hr>
+<div class="col-md-10">
     <div class="card">
         <?php if ($status == true) : ?>
+            <div class="card-header">Tambah Supplier Baru</div>
             <form action="" method="POST">
                 <div class="card-body">
                     <div class="form-group">

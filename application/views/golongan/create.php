@@ -1,7 +1,6 @@
-<div class="col-md-6 py-3 px-3">
-    <h1 class="h3 text-gray-800">Tambah Golongan Baru</h1>
-    <hr>
+<div class="col-md-6">
     <div class="card">
+        <div class="card-header">Tambah Golongan Baru</div>
         <form action="" method="POST">
             <div class="card-body">
                 <div class="form-group">
