@@ -2,8 +2,8 @@
     <div class="card">
         <?php if ($status == true) : ?>
             <div class="card-header">Edit Customer</div>
-            <form action="" method="POST">
-                <div class="card-body">
+            <div class="card-body">
+                <form action="" method="POST">
                     <div class="form-group d-flex">
                         <div class="col-sm-2">Wilayah</div>
                         <div class="col-sm-10">
@@ -17,8 +17,8 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>
+                            <small class=" form-text text-danger"><?= form_error('WILAYAH_ID'); ?></small>
                         </div>
-                        <small class=" form-text text-danger"><?= form_error('WILAYAH_ID'); ?></small>
                     </div>
                     <div class="form-group d-flex">
                         <div class="col-sm-2">Kode</div>
@@ -121,8 +121,8 @@
 
                     <button type="submit" class="btn btn-primary">Edit</button>
                     <a href="<?= base_url('customer') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
-                </div>
-            </form>
+                </form>
+            </div>
         <?php else : echo $message; ?>
         <?php endif; ?>
     </div>

@@ -18,48 +18,91 @@ class Barang extends MY_Controller
 
     public function create_barang()
     {
-        $response = $this->_client->request('GET', 'wilayah');
+        $response = $this->_client->request('GET', 'golongan');
 
-        $result = json_decode($response->getBody()->getContents(), true);
+        $golongan = json_decode($response->getBody()->getContents(), true);
+
+        $response = $this->_client->request('GET', 'subgolongan');
+
+        $subgolongan = json_decode($response->getBody()->getContents(), true);
+
+        $response = $this->_client->request('GET', 'supplier');
+
+        $supplier = json_decode($response->getBody()->getContents(), true);
+
+        $response = $this->_client->request('GET', 'lokasi');
+
+        $lokasi = json_decode($response->getBody()->getContents(), true);
+
+        $result['golongan'] = $golongan['data'];
+        $result['subgolongan'] = $subgolongan['data'];
+        $result['supplier'] = $supplier['data'];
+        $result['lokasi'] = $lokasi['data'];
 
         $this->form_validation->set_rules('KODE', 'KODE', 'trim|required|numeric');
         $this->form_validation->set_rules('NAMA', 'NAMA', 'trim|required|min_length[3]');
-        $this->form_validation->set_rules('ALAMAT', 'ALAMAT', 'trim|required|min_length[4]');
-        $this->form_validation->set_rules('KONTAK', 'KONTAK', 'trim|required|numeric');
-        $this->form_validation->set_rules('NPWP', 'NPWP', 'trim|required|numeric');
-        $this->form_validation->set_rules('JATUH_TEMPO', 'JATUH_TEMPO', 'trim|numeric');
-        $this->form_validation->set_rules('WILAYAH_ID', 'WILAYAH_ID', 'trim|required');
-        $this->form_validation->set_rules('DEF', 'DEF', 'trim');
-        $this->form_validation->set_rules('ALAMAT2', 'ALAMAT2', 'trim|min_length[4]');
+        $this->form_validation->set_rules('SATUAN', 'SATUAN', 'trim');
+        $this->form_validation->set_rules('STOK', 'STOK', 'trim|required|numeric');
+        $this->form_validation->set_rules('MIN_STOK', 'MIN_STOK', 'trim|required|numeric');
+        $this->form_validation->set_rules('MAX_STOK', 'MAX_STOK', 'trim|required|numeric');
+        $this->form_validation->set_rules('HARGA_BELI', 'HARGA_BELI', 'trim|required|numeric');
+        $this->form_validation->set_rules('HARGA_JUAL', 'HARGA_JUAL', 'trim|required|numeric');
+        $this->form_validation->set_rules('IS_UPDATE_HARGA_JUAL', 'IS_UPDATE_HARGA_JUAL', 'trim');
+        $this->form_validation->set_rules('GOLONGAN_ID', 'GOLONGAN_ID', 'trim|required');
+        $this->form_validation->set_rules('LOKASI_ID', 'LOKASI_ID', 'trim|required');
+        $this->form_validation->set_rules('SUPPLIER_ID', 'SUPPLIER_ID', 'trim|required');
+        $this->form_validation->set_rules('STOK_AWAL', 'STOK_AWAL', 'trim|required|numeric');
+        $this->form_validation->set_rules('GARANSI', 'GARANSI', 'trim');
+        $this->form_validation->set_rules('SUB_GOLONGAN_ID', 'SUB_GOLONGAN_ID', 'trim|required');
         $this->form_validation->set_rules('KODE_BARCODE', 'KODE_BARCODE', 'trim|required|numeric');
-        $this->form_validation->set_rules('PLAFON_PIUTANG', 'PLAFON_PIUTANG', 'trim|numeric');
-        // $this->form_validation->set_rules('TOTAL_PIUTANG', 'TOTAL_PIUTANG', 'trim|required');
-        // $this->form_validation->set_rules('TOTAL_PEMBAYARAN_PIUTANG', 'TOTAL_PEMBAYARAN_PIUTANG', 'trim|required');
-        $this->form_validation->set_rules('KOTA', 'KOTA', 'trim|required');
-        $this->form_validation->set_rules('TELEPON', 'TELEPON', 'trim|required|numeric');
-        $this->form_validation->set_rules('JENIS_ANGGOTA', 'JENIS_ANGGOTA', 'trim|required');
+        $this->form_validation->set_rules('BIJI1', 'BIJI1', 'trim|numeric');
+        $this->form_validation->set_rules('SATUAN2', 'SATUAN2', 'trim|numeric');
+        $this->form_validation->set_rules('BIJI2', 'BIJI2', 'trim|numeric');
+        $this->form_validation->set_rules('SATUAN3', 'SATUAN3', 'trim|numeric');
+        $this->form_validation->set_rules('BIJI3', 'BIJI3', 'trim|numeric');
+        $this->form_validation->set_rules('SATUAN4', 'SATUAN4', 'trim|numeric');
+        $this->form_validation->set_rules('BIJI4', 'BIJI4', 'trim|numeric');
+        $this->form_validation->set_rules('TGL_TRANSAKSI', 'TGL_TRANSAKSI', 'trim');
+        $this->form_validation->set_rules('DISKON_GENERAL', 'DISKON_GENERAL', 'trim|numeric');
+        $this->form_validation->set_rules('DISKON_SILVER', 'DISKON_SILVER', 'trim|numeric');
+        $this->form_validation->set_rules('DISKON_GOLD', 'DISKON_GOLD', 'trim|numeric');
+        $this->form_validation->set_rules('POIN', 'POIN', 'trim|numeric');
+        $this->form_validation->set_rules('IS_WAJIB_ISI_IMEI', 'IS_WAJIB_ISI_IMEI', 'trim');
+        $this->form_validation->set_rules('GUNA', 'GUNA', 'trim|numeric');
+        $this->form_validation->set_rules('FOTO', 'FOTO', 'trim|ext_in[FOTO.png.jpg]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'barang/create', $result);
         } else {
             $array = [
                 'KODE' => $this->input->post('KODE'),
-                'NAMA' => $this->input->post('NAMA'),
-                'ALAMAT' => $this->input->post('ALAMAT'),
-                'KONTAK' => $this->input->post('KONTAK'),
-                'NPWP' => $this->input->post('NPWP'),
-                'JATUH_TEMPO' => $this->input->post('JATUH_TEMPO'),
-                'URUT' => $this->input->post('URUT'),
-                'WILAYAH_ID' => $this->input->post('WILAYAH_ID'),
-                'DEF' => $this->input->post('DEF'),
-                'ALAMAT2' => $this->input->post('ALAMAT2'),
                 'KODE_BARCODE' => $this->input->post('KODE_BARCODE'),
-                'PLAFON_PIUTANG' => $this->input->post('PLAFON_PIUTANG'),
-                'TOTAL_PIUTANG' => $this->input->post('TOTAL_PIUTANG'),
-                'TOTAL_PEMBAYARAN_PIUTANG' => $this->input->post('TOTAL_PEMBAYARAN_PIUTANG'),
-                'KOTA' => $this->input->post('KOTA'),
-                'TELEPON' => $this->input->post('TELEPON'),
-                'JENIS_ANGGOTA' => $this->input->post('JENIS_ANGGOTA'),
+                'NAMA' => $this->input->post('NAMA'),
+                'GOLONGAN_ID' => $this->input->post('GOLONGAN_ID'),
+                'SUB_GOLONGAN_ID' => $this->input->post('SUB_GOLONGAN_ID'),
+                'SUPPLIER_ID' => $this->input->post('SUPPLIER_ID'),
+                'SATUAN' => $this->input->post('SATUAN'),
+                'SATUAN2' => $this->input->post('SATUAN2'),
+                'SATUAN3' => $this->input->post('SATUAN3'),
+                'SATUAN4' => $this->input->post('SATUAN4'),
+                'BIJI1' => $this->input->post('BIJI1'),
+                'BIJI2' => $this->input->post('BIJI2'),
+                'BIJI3' => $this->input->post('BIJI3'),
+                'BIJI4' => $this->input->post('BIJI4'),
+                'STOK_AWAL' => $this->input->post('STOK_AWAL'),
+                'STOK' => $this->input->post('STOK'),
+                'DISKON_GENERAL' => $this->input->post('DISKON_GENERAL'),
+                'DISKON_SILVER' => $this->input->post('DISKON_SILVER'),
+                'DISKON_GOLD' => $this->input->post('DISKON_GOLD'),
+                'HARGA_BELI' => $this->input->post('HARGA_BELI'),
+                'HARGA_JUAL' => $this->input->post('HARGA_JUAL'),
+                'MIN_STOK' => $this->input->post('MIN_STOK'),
+                'MAX_STOK' => $this->input->post('MAX_STOK'),
+                'GARANSI' => $this->input->post('GARANSI'),
+                'POIN' => $this->input->post('POIN'),
+                'IS_UPDATE_HARGA_JUAL' => $this->input->post('IS_UPDATE_HARGA_JUAL'),
+                'IS_WAJIB_ISI_IMEI' => $this->input->post('IS_WAJIB_ISI_IMEI'),
+                'LOKASI_ID' => $this->input->post('LOKASI_ID'),
             ];
 
             $response = $this->_client->request('POST', 'barang', [
@@ -83,9 +126,21 @@ class Barang extends MY_Controller
 
     public function edit_barang($kode)
     {
-        $response = $this->_client->request('GET', 'wilayah');
+        $response = $this->_client->request('GET', 'golongan');
 
-        $results = json_decode($response->getBody()->getContents(), true);
+        $golongan = json_decode($response->getBody()->getContents(), true);
+
+        $response = $this->_client->request('GET', 'subgolongan');
+
+        $subgolongan = json_decode($response->getBody()->getContents(), true);
+
+        $response = $this->_client->request('GET', 'supplier');
+
+        $supplier = json_decode($response->getBody()->getContents(), true);
+
+        $response = $this->_client->request('GET', 'lokasi');
+
+        $lokasi = json_decode($response->getBody()->getContents(), true);
 
         $response = $this->_client->request('GET', 'barang', [
             'query' => [
@@ -95,63 +150,76 @@ class Barang extends MY_Controller
 
         $result = json_decode($response->getBody()->getContents(), true);
         $result['data'] = $result['data'][0];
-        $result['wilayah'] = $results['data'];
+        $result['golongan'] = $golongan['data'];
+        $result['subgolongan'] = $subgolongan['data'];
+        $result['supplier'] = $supplier['data'];
+        $result['lokasi'] = $lokasi['data'];
 
         $this->form_validation->set_rules('NAMA', 'NAMA', 'trim|required|min_length[3]');
-        $this->form_validation->set_rules('ALAMAT', 'ALAMAT', 'trim|required|min_length[4]');
-        $this->form_validation->set_rules('KONTAK', 'KONTAK', 'trim|required|numeric');
-        $this->form_validation->set_rules('NPWP', 'NPWP', 'trim|required|numeric');
-        $this->form_validation->set_rules('JATUH_TEMPO', 'JATUH_TEMPO', 'trim|numeric');
-        $this->form_validation->set_rules('WILAYAH_ID', 'WILAYAH_ID', 'trim|required');
-        $this->form_validation->set_rules('DEF', 'DEF', 'trim');
-        $this->form_validation->set_rules('ALAMAT2', 'ALAMAT2', 'trim|min_length[4]');
+        $this->form_validation->set_rules('SATUAN', 'SATUAN', 'trim');
+        $this->form_validation->set_rules('STOK', 'STOK', 'trim|required|numeric');
+        $this->form_validation->set_rules('MIN_STOK', 'MIN_STOK', 'trim|required|numeric');
+        $this->form_validation->set_rules('MAX_STOK', 'MAX_STOK', 'trim|required|numeric');
+        $this->form_validation->set_rules('HARGA_BELI', 'HARGA_BELI', 'trim|required|numeric');
+        $this->form_validation->set_rules('HARGA_JUAL', 'HARGA_JUAL', 'trim|required|numeric');
+        $this->form_validation->set_rules('IS_UPDATE_HARGA_JUAL', 'IS_UPDATE_HARGA_JUAL', 'trim');
+        $this->form_validation->set_rules('GOLONGAN_ID', 'GOLONGAN_ID', 'trim|required');
+        $this->form_validation->set_rules('LOKASI_ID', 'LOKASI_ID', 'trim|required');
+        $this->form_validation->set_rules('SUPPLIER_ID', 'SUPPLIER_ID', 'trim|required');
+        $this->form_validation->set_rules('STOK_AWAL', 'STOK_AWAL', 'trim|required|numeric');
+        $this->form_validation->set_rules('GARANSI', 'GARANSI', 'trim');
+        $this->form_validation->set_rules('SUB_GOLONGAN_ID', 'SUB_GOLONGAN_ID', 'trim|required');
         $this->form_validation->set_rules('KODE_BARCODE', 'KODE_BARCODE', 'trim|required|numeric');
-        $this->form_validation->set_rules('PLAFON_PIUTANG', 'PLAFON_PIUTANG', 'trim|numeric');
-        // $this->form_validation->set_rules('TOTAL_PIUTANG', 'TOTAL_PIUTANG', 'trim|required');
-        // $this->form_validation->set_rules('TOTAL_PEMBAYARAN_PIUTANG', 'TOTAL_PEMBAYARAN_PIUTANG', 'trim|required');
-        $this->form_validation->set_rules('KOTA', 'KOTA', 'trim|required');
-        $this->form_validation->set_rules('TELEPON', 'TELEPON', 'trim|required|numeric');
-        $this->form_validation->set_rules('JENIS_ANGGOTA', 'JENIS_ANGGOTA', 'trim|required');
+        $this->form_validation->set_rules('BIJI1', 'BIJI1', 'trim|numeric');
+        $this->form_validation->set_rules('SATUAN2', 'SATUAN2', 'trim|numeric');
+        $this->form_validation->set_rules('BIJI2', 'BIJI2', 'trim|numeric');
+        $this->form_validation->set_rules('SATUAN3', 'SATUAN3', 'trim|numeric');
+        $this->form_validation->set_rules('BIJI3', 'BIJI3', 'trim|numeric');
+        $this->form_validation->set_rules('SATUAN4', 'SATUAN4', 'trim|numeric');
+        $this->form_validation->set_rules('BIJI4', 'BIJI4', 'trim|numeric');
+        $this->form_validation->set_rules('TGL_TRANSAKSI', 'TGL_TRANSAKSI', 'trim');
+        $this->form_validation->set_rules('DISKON_GENERAL', 'DISKON_GENERAL', 'trim|numeric');
+        $this->form_validation->set_rules('DISKON_SILVER', 'DISKON_SILVER', 'trim|numeric');
+        $this->form_validation->set_rules('DISKON_GOLD', 'DISKON_GOLD', 'trim|numeric');
+        $this->form_validation->set_rules('POIN', 'POIN', 'trim|numeric');
+        $this->form_validation->set_rules('IS_WAJIB_ISI_IMEI', 'IS_WAJIB_ISI_IMEI', 'trim');
+        $this->form_validation->set_rules('GUNA', 'GUNA', 'trim|numeric');
+        $this->form_validation->set_rules('FOTO', 'FOTO', 'trim|ext_in[FOTO.png.jpg]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'barang/edit', $result);
         } else {
-            $nama = $this->input->post('NAMA');
-            $alamat = $this->input->post('ALAMAT');
-            $kontak = $this->input->post('KONTAK');
-            $npwp = $this->input->post('NPWP');
-            $jat_tem = $this->input->post('JATUH_TEMPO');
-            $ur = $this->input->post('URUT');
-            $wil_id = $this->input->post('WILAYAH_ID');
-            $def = $this->input->post('DEF');
-            $alamat2 = $this->input->post('ALAMAT2');
-            $barcode = $this->input->post('KODE_BARCODE');
-            $plaf = $this->input->post('PLAFON_PIUTANG');
-            $tot_piu = $this->input->post('TOTAL_PIUTANG');
-            $tot_pem_piu = $this->input->post('TOTAL_PEMBAYARAN_PIUTANG');
-            $kota = $this->input->post('KOTA');
-            $telp = $this->input->post('TELEPON');
-            $jen_go = $this->input->post('JENIS_ANGGOTA');
 
             $response = $this->_client->request('PUT', 'barang', [
                 'form_params' => [
                     'KODE' => $kode,
-                    'NAMA' => $nama,
-                    'ALAMAT' => $alamat,
-                    'KONTAK' => $kontak,
-                    'NPWP' => $npwp,
-                    'JATUH_TEMPO' => $jat_tem,
-                    'URUT' => $ur,
-                    'WILAYAH_ID' => $wil_id,
-                    'DEF' => $def,
-                    'ALAMAT2' => $alamat2,
-                    'KODE_BARCODE' => $barcode,
-                    'PLAFON_PIUTANG' => $plaf,
-                    'TOTAL_PIUTANG' => $tot_piu,
-                    'TOTAL_PEMBAYARAN_PIUTANG' => $tot_pem_piu,
-                    'KOTA' => $kota,
-                    'TELEPON' => $telp,
-                    'JENIS_ANGGOTA' => $jen_go,
+                    'KODE_BARCODE' => $this->input->post('KODE_BARCODE'),
+                    'NAMA' => $this->input->post('NAMA'),
+                    'GOLONGAN_ID' => $this->input->post('GOLONGAN_ID'),
+                    'SUB_GOLONGAN_ID' => $this->input->post('SUB_GOLONGAN_ID'),
+                    'SUPPLIER_ID' => $this->input->post('SUPPLIER_ID'),
+                    'SATUAN' => $this->input->post('SATUAN'),
+                    'SATUAN2' => $this->input->post('SATUAN2'),
+                    'SATUAN3' => $this->input->post('SATUAN3'),
+                    'SATUAN4' => $this->input->post('SATUAN4'),
+                    'BIJI1' => $this->input->post('BIJI1'),
+                    'BIJI2' => $this->input->post('BIJI2'),
+                    'BIJI3' => $this->input->post('BIJI3'),
+                    'BIJI4' => $this->input->post('BIJI4'),
+                    'STOK_AWAL' => $this->input->post('STOK_AWAL'),
+                    'STOK' => $this->input->post('STOK'),
+                    'DISKON_GENERAL' => $this->input->post('DISKON_GENERAL'),
+                    'DISKON_SILVER' => $this->input->post('DISKON_SILVER'),
+                    'DISKON_GOLD' => $this->input->post('DISKON_GOLD'),
+                    'HARGA_BELI' => $this->input->post('HARGA_BELI'),
+                    'HARGA_JUAL' => $this->input->post('HARGA_JUAL'),
+                    'MIN_STOK' => $this->input->post('MIN_STOK'),
+                    'MAX_STOK' => $this->input->post('MAX_STOK'),
+                    'GARANSI' => $this->input->post('GARANSI'),
+                    'POIN' => $this->input->post('POIN'),
+                    'IS_UPDATE_HARGA_JUAL' => $this->input->post('IS_UPDATE_HARGA_JUAL'),
+                    'IS_WAJIB_ISI_IMEI' => $this->input->post('IS_WAJIB_ISI_IMEI'),
+                    'LOKASI_ID' => $this->input->post('LOKASI_ID'),
                 ]
             ]);
 
