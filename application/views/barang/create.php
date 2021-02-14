@@ -4,7 +4,7 @@
         <div class="card-body">
             <form action="" method="POST">
                 <div class="form-group">
-                    <select name="GOLONGAN_ID" id="GOLONGAN_ID" class="form-select">
+                    <select name="GOLONGAN_ID" id="GOLONGAN_ID" class="form-control">
                         <option value="">Pilih Golongan</option>
                         <?php foreach ($golongan as $wil) : ?>
                             <option value="<?= $wil['KODE'] ?>"><?= $wil['KODE'] ?> - <?= $wil['KETERANGAN'] ?></option>
@@ -13,7 +13,7 @@
                     <small class=" form-text text-danger"><?= form_error('GOLONGAN_ID'); ?></small>
                 </div>
                 <div class="form-group">
-                    <select name="SUB_GOLONGAN_ID" id="SUB_GOLONGAN_ID" class="form-select">
+                    <select name="SUB_GOLONGAN_ID" id="SUB_GOLONGAN_ID" class="form-control">
                         <option value="">Pilih Sub Golongan</option>
                         <?php foreach ($subgolongan as $subgol) : ?>
                             <option value="<?= $subgol['KODE'] ?>"><?= $subgol['KODE'] ?> - <?= $subgol['KETERANGAN'] ?></option>
@@ -36,7 +36,7 @@
                     <small class=" form-text text-danger"><?= form_error('NAMA'); ?></small>
                 </div>
                 <div class="form-group">
-                    <select name="SUPPLIER_ID" id="SUPPLIER_ID" class="form-select">
+                    <select name="SUPPLIER_ID" id="SUPPLIER_ID" class="form-control">
                         <option value="">Pilih Supplier</option>
                         <?php foreach ($supplier as $spp) : ?>
                             <option value="<?= $spp['KODE'] ?>"><?= $spp['KODE'] ?> - <?= $spp['NAMA'] ?></option>
@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <select name="LOKASI_ID" id="LOKASI_ID" class="form-select">
+                    <select name="LOKASI_ID" id="LOKASI_ID" class="form-control">
                         <option value="">Pilih Lokasi</option>
                         <?php foreach ($lokasi as $lok) : ?>
                             <option value="<?= $lok['KODE'] ?>"><?= $lok['KODE'] ?> - <?= $lok['KETERANGAN'] ?></option>

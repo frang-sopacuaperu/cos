@@ -5,7 +5,7 @@
             <form action="" method="POST">
                 <div class="card-body">
                     <div class="form-group">
-                        <select name="WILAYAH_ID" id="WILAYAH_ID" class="form-select">
+                        <select name="WILAYAH_ID" id="WILAYAH_ID" class="form-control">
                             <option value="">Pilih Wilayah</option>
                             <?php foreach ($data as $wil) : ?>
                                 <option value="<?= $wil['KODE'] ?>"><?= $wil['KODE'] ?> - <?= $wil['KETERANGAN'] ?></option>

@@ -7,7 +7,7 @@
                     <div class="form-group d-flex">
                         <div class="col-sm-2">Wilayah</div>
                         <div class="col-sm-10">
-                            <select name="WILAYAH_ID" id="WILAYAH_ID" class="form-select">
+                            <select name="WILAYAH_ID" id="WILAYAH_ID" class="form-control">
                                 <option value="">Pilih Wilayah</option>
                                 <?php foreach ($wilayah as $wil) : ?>
                                     <?php if ($wil['KODE'] == $data['WILAYAH_ID']) : ?>
@@ -99,7 +99,7 @@
                     <div class="form-group d-flex">
                         <div class="col-sm-2">Jenis Anggota</div>
                         <div class="col-sm-10">
-                            <select name="JENIS_ANGGOTA" id="JENIS_ANGGOTA" class="form-select">
+                            <select name="JENIS_ANGGOTA" id="JENIS_ANGGOTA" class="form-control">
                                 <?php if ($data['JENIS_ANGGOTA'] ==  $data['JENIS_ANGGOTA']) : ?>
                                     <option class="text-red" value="<?= $data['JENIS_ANGGOTA'] ?>" selected><?= $data['JENIS_ANGGOTA'] ?></option>
                                     <option value="" disabled>Pilih Jenis Anggota</option>

@@ -4,7 +4,7 @@
         <form action="" method="POST">
             <div class="card-body">
                 <div class="form-group">
-                    <select name="WILAYAH_ID" id="WILAYAH_ID" class="form-select">
+                    <select name="WILAYAH_ID" id="WILAYAH_ID" class="form-control">
                         <option value="">Pilih Wilayah</option>
                         <?php foreach ($data as $wil) : ?>
                             <option value="<?= $wil['KODE'] ?>"><?= $wil['KODE'] ?> - <?= $wil['KETERANGAN'] ?></option>
@@ -66,7 +66,7 @@
                     <small class=" form-text text-danger"><?= form_error('PLAFON_PIUTANG'); ?></small>
                 </div>
                 <div class="form-group">
-                    <select name="JENIS_ANGGOTA" id="JENIS_ANGGOTA" class="form-select">
+                    <select name="JENIS_ANGGOTA" id="JENIS_ANGGOTA" class="form-control">
                         <option value="">Pilih Jenis Anggota</option>
                         <option value="General">General</option>
                         <option value="Silver">Silver</option>
