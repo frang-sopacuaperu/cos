@@ -21,7 +21,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Kode</th>
+                    <th>Kode Barang</th>
                     <th>Nama</th>
                     <th>Stok Awal</th>
                     <th>Stok</th>

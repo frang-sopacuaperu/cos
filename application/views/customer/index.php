@@ -21,7 +21,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Kode</th>
+                    <th>Kode Customer</th>
                     <th>Nama</th>
                     <th>Jatuh Tempo</th>
                     <th>Plafon Piutang</th>

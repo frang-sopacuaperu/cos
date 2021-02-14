@@ -60,194 +60,90 @@
 </head>
 
 <body class="px-3 mt-3">
+    <div class="weappe">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="<?= base_url('dashboard') ?>">COS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">COS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a href="<?= base_url('dashboard') ?>" class="nav-link"><i class="fab fa-keycdn"> Master</i></a>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a href="" class="nav-link"><i class="fas fa-comments-dollar"> Transaksi</i></a>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a href="" class="nav-link"><i class="fa fa-clipboard"> Laporan</i></a>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a href="<?= base_url('auth/logout') ?>" onclick="return confirm('Yakin ingin logout?') " class="nav-link"><i class="fas fa-sign-out-alt"> Sign Out</i></a>
-                    </li>
-                </ul>
-                <!-- <form class="d-flex">
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="<?= base_url('dashboard') ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fab fa-keycdn"> Master</i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= base_url('barang'); ?>">Barang</a>
+                                <a class="dropdown-item" href="<?= base_url('biaya'); ?>">Biaya</a>
+                                <a class="dropdown-item" href="<?= base_url('customer'); ?>">Customer</a>
+                                <a class="dropdown-item" href="<?= base_url('golongan'); ?>">Golongan</a>
+                                <a class="dropdown-item" href="<?= base_url('jasa'); ?>">Jasa</a>
+                                <a class="dropdown-item" href="<?= base_url('lokasi'); ?>">Lokasi</a>
+                                <a class="dropdown-item" href="<?= base_url('multiprice'); ?>">Multi Price</a>
+                                <a class="dropdown-item" href="<?= base_url('salesman'); ?>">Salesman</a>
+                                <a class="dropdown-item" href="<?= base_url('sub_golongan'); ?>">Sub Golongan</a>
+                                <a class="dropdown-item" href="<?= base_url('supplier'); ?>">Supplier</a>
+                                <a class="dropdown-item" href="<?= base_url('wilayah'); ?>">Wilayah</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-comments-dollar"> Transaksi</i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= base_url('barang'); ?>">Pemasukan</a>
+                                <a class="dropdown-item" href="<?= base_url('biaya'); ?>">Pembelian</a>
+                                <a class="dropdown-item" href="<?= base_url('customer'); ?>">Pengeluaran</a>
+                                <a class="dropdown-item" href="<?= base_url('golongan'); ?>">Penjualan</a>
+                                <a class="dropdown-item" href="<?= base_url('jasa'); ?>">Pelunasan Hutang</a>
+                                <a class="dropdown-item" href="<?= base_url('lokasi'); ?>">Pembayaran Hutang</a>
+                                <a class="dropdown-item" href="<?= base_url('multiprice'); ?>">Retur Pembelian</a>
+                                <a class="dropdown-item" href="<?= base_url('salesman'); ?>">Retur Penjualan</a>
+                                <a class="dropdown-item" href="<?= base_url('sub_golongan'); ?>">Tanda Keluar Barang</a>
+                                <a class="dropdown-item" href="<?= base_url('supplier'); ?>">Tanda Terima Barang</a>
+                            </div>
+                        </li>
+                        <li class="nav-item mr-2">
+                            <a href="" class="nav-link"><i class="fa fa-clipboard"> Laporan</i></a>
+                        </li>
+                        <li class="nav-item mr-2">
+                            <a href="<?= base_url('auth/logout') ?>" onclick="return confirm('Yakin ingin logout?') " class="nav-link"><i class="fas fa-sign-out-alt"> Sign Out</i></a>
+                        </li>
+                    </ul>
+                    <!-- <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form> -->
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row mt-5">
+                    <div class="col-md-12 col-xs-12 themed-grid-col">
+                        <?= $contents ?>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
 
-
-
-    <div class="row mt-5">
-        <div class="col-sm-6 col-lg-10 themed-grid-col">
-            <?= $contents ?>
-        </div>
-        <div class="col-sm-6 col-lg-2 themed-grid-col">
-            <div class="card">
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="card-footer">
                 <div class="card-body">
-
-                    <!-- Sidebar -->
-                    <div class="sidebar">
-
-                        <!-- Sidebar Menu -->
-                        <nav class="mt-2">
-                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-                                <!-- QUERY MENU LEVEL 1 -->
-                                <li class="nav-item">
-                                    <a href="<?= base_url('dashboard'); ?>" class="nav-link btn-dark text-white">
-                                        Master
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('barang'); ?>" class="nav-link active">
-                                        Barang
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('biaya'); ?>" class="nav-link active">
-                                        Biaya
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('customer'); ?>" class="nav-link active">
-                                        Customer
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('golongan'); ?>" class="nav-link active">
-                                        Golongan
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('jasa'); ?>" class="nav-link active">
-                                        Jasa
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('lokasi'); ?>" class="nav-link active">
-                                        Lokasi
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('multiprice'); ?>" class="nav-link active">
-                                        Multi Price
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('salesman'); ?>" class="nav-link active">
-                                        Salesman
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('sub_golongan'); ?>" class="nav-link active">
-                                        Sub Golongan
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('supplier'); ?>" class="nav-link active">
-                                        Supplier
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('wilayah'); ?>" class="nav-link active">
-                                        Wilayah
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link btn-dark text-white">
-                                        Transaksi
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('pemasukan'); ?>" class="nav-link active">
-                                        Pemasukan
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('pembelian'); ?>" class="nav-link active">
-                                        Pembelian
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('pengeluaran'); ?>" class="nav-link active">
-                                        Pengeluaran
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('penjualan'); ?>" class="nav-link active">
-                                        Penjualan
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('pelunasan_hutang'); ?>" class="nav-link active">
-                                        Pelunasan Hutang
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('pembayaran_hutang'); ?>" class="nav-link active">
-                                        Pembayaran Hutang
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('retur_pembelian'); ?>" class="nav-link active">
-                                        Retur Pembelian
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('retur_penjualan'); ?>" class="nav-link active">
-                                        Retur Penjualan
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('barang_keluar'); ?>" class="nav-link active">
-                                        Tanda Keluar Barang
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('barang_terima'); ?>" class="nav-link active">
-                                        Tanda Terima Barang
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </nav>
-                        <!-- /.sidebar-menu -->
+                    <div class="container mt-5">
+                        <strong>Copyright &copy; 2021 </strong>
+                        All rights reserved.
+                        <div class="float-right d-none d-sm-inline-block">
+                            <b>Version</b> 2.0
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     </div>
-
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="card-footer">
-            <div class="card-body">
-                <div class="container mt-5">
-                    <strong>Copyright &copy; 2021 </strong>
-                    All rights reserved.
-                    <div class="float-right d-none d-sm-inline-block">
-                        <b>Version</b> 2.0
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
 
 
 

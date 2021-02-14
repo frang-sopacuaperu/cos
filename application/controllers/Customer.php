@@ -22,22 +22,22 @@ class Customer extends MY_Controller
 
         $result = json_decode($response->getBody()->getContents(), true);
 
-        $this->form_validation->set_rules('KODE', 'KODE', 'trim|required|numeric');
-        $this->form_validation->set_rules('NAMA', 'NAMA', 'trim|required|min_length[3]');
-        $this->form_validation->set_rules('ALAMAT', 'ALAMAT', 'trim|required|min_length[4]');
-        $this->form_validation->set_rules('KONTAK', 'KONTAK', 'trim|required|numeric');
+        $this->form_validation->set_rules('KODE', 'Kode', 'trim|required|numeric');
+        $this->form_validation->set_rules('NAMA', 'Nama', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('ALAMAT', 'Alamat', 'trim|required|min_length[4]');
+        $this->form_validation->set_rules('KONTAK', 'Kontak', 'trim|required|numeric');
         $this->form_validation->set_rules('NPWP', 'NPWP', 'trim|required|numeric');
-        $this->form_validation->set_rules('JATUH_TEMPO', 'JATUH_TEMPO', 'trim|numeric');
-        $this->form_validation->set_rules('WILAYAH_ID', 'WILAYAH_ID', 'trim|required');
-        $this->form_validation->set_rules('DEF', 'DEF', 'trim');
-        $this->form_validation->set_rules('ALAMAT2', 'ALAMAT2', 'trim|min_length[4]');
-        $this->form_validation->set_rules('KODE_BARCODE', 'KODE_BARCODE', 'trim|required|numeric');
-        $this->form_validation->set_rules('PLAFON_PIUTANG', 'PLAFON_PIUTANG', 'trim|numeric');
-        // $this->form_validation->set_rules('TOTAL_PIUTANG', 'TOTAL_PIUTANG', 'trim|required');
-        // $this->form_validation->set_rules('TOTAL_PEMBAYARAN_PIUTANG', 'TOTAL_PEMBAYARAN_PIUTANG', 'trim|required');
-        $this->form_validation->set_rules('KOTA', 'KOTA', 'trim|required');
-        $this->form_validation->set_rules('TELEPON', 'TELEPON', 'trim|required|numeric');
-        $this->form_validation->set_rules('JENIS_ANGGOTA', 'JENIS_ANGGOTA', 'trim|required');
+        $this->form_validation->set_rules('JATUH_TEMPO', 'Jatuh Tempo', 'trim|numeric');
+        $this->form_validation->set_rules('WILAYAH_ID', 'Wilayah', 'trim|required');
+        $this->form_validation->set_rules('DEF', 'Default', 'trim');
+        $this->form_validation->set_rules('ALAMAT2', 'Alamat Ke 2', 'trim|min_length[4]');
+        $this->form_validation->set_rules('KODE_BARCODE', 'Barcode', 'trim|required|numeric');
+        $this->form_validation->set_rules('PLAFON_PIUTANG', 'Plafon Piutang', 'trim|numeric');
+        // $this->form_validation->set_rules('TOTAL_PIUTANG', 'Total Piutang', 'trim|required');
+        // $this->form_validation->set_rules('TOTAL_PEMBAYARAN_PIUTANG', 'Total Pembayaran Piutang', 'trim|required');
+        $this->form_validation->set_rules('KOTA', 'Kota', 'trim|required');
+        $this->form_validation->set_rules('TELEPON', 'No. HP', 'trim|required|numeric');
+        $this->form_validation->set_rules('JENIS_ANGGOTA', 'Jenis Anggota', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'customer/create', $result);
@@ -97,21 +97,21 @@ class Customer extends MY_Controller
         $result['data'] = $result['data'][0];
         $result['wilayah'] = $results['data'];
 
-        $this->form_validation->set_rules('NAMA', 'NAMA', 'trim|required|min_length[3]');
-        $this->form_validation->set_rules('ALAMAT', 'ALAMAT', 'trim|required|min_length[4]');
-        $this->form_validation->set_rules('KONTAK', 'KONTAK', 'trim|required|numeric');
+        $this->form_validation->set_rules('NAMA', 'Nama', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('ALAMAT', 'Alamat', 'trim|required|min_length[4]');
+        $this->form_validation->set_rules('KONTAK', 'Kontak', 'trim|required|numeric');
         $this->form_validation->set_rules('NPWP', 'NPWP', 'trim|required|numeric');
-        $this->form_validation->set_rules('JATUH_TEMPO', 'JATUH_TEMPO', 'trim|numeric');
-        $this->form_validation->set_rules('WILAYAH_ID', 'WILAYAH_ID', 'trim|required');
-        $this->form_validation->set_rules('DEF', 'DEF', 'trim');
-        $this->form_validation->set_rules('ALAMAT2', 'ALAMAT2', 'trim|min_length[4]');
-        $this->form_validation->set_rules('KODE_BARCODE', 'KODE_BARCODE', 'trim|required|numeric');
-        $this->form_validation->set_rules('PLAFON_PIUTANG', 'PLAFON_PIUTANG', 'trim|numeric');
-        // $this->form_validation->set_rules('TOTAL_PIUTANG', 'TOTAL_PIUTANG', 'trim|required');
-        // $this->form_validation->set_rules('TOTAL_PEMBAYARAN_PIUTANG', 'TOTAL_PEMBAYARAN_PIUTANG', 'trim|required');
-        $this->form_validation->set_rules('KOTA', 'KOTA', 'trim|required');
-        $this->form_validation->set_rules('TELEPON', 'TELEPON', 'trim|required|numeric');
-        $this->form_validation->set_rules('JENIS_ANGGOTA', 'JENIS_ANGGOTA', 'trim|required');
+        $this->form_validation->set_rules('JATUH_TEMPO', 'Jatuh Tempo', 'trim|numeric');
+        $this->form_validation->set_rules('WILAYAH_ID', 'Wilayah', 'trim|required');
+        $this->form_validation->set_rules('DEF', 'Default', 'trim');
+        $this->form_validation->set_rules('ALAMAT2', 'Alamat Ke 2', 'trim|min_length[4]');
+        $this->form_validation->set_rules('KODE_BARCODE', 'Barcode', 'trim|required|numeric');
+        $this->form_validation->set_rules('PLAFON_PIUTANG', 'Plafon Piutang', 'trim|numeric');
+        // $this->form_validation->set_rules('TOTAL_PIUTANG', 'Total Piutang', 'trim|required');
+        // $this->form_validation->set_rules('TOTAL_PEMBAYARAN_PIUTANG', 'Total Pembayaran Piutang', 'trim|required');
+        $this->form_validation->set_rules('KOTA', 'Kota', 'trim|required');
+        $this->form_validation->set_rules('TELEPON', 'No. HP', 'trim|required|numeric');
+        $this->form_validation->set_rules('JENIS_ANGGOTA', 'Jenis Anggota', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'customer/edit', $result);

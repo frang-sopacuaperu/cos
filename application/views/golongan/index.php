@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Kode</th>
+                    <th>Kode Golongan</th>
                     <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
