@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Kode</th>
+                    <th>Kode Lokasi</th>
                     <th>Keterangan</th>
                     <th>Default</th>
                     <th>Aksi</th>

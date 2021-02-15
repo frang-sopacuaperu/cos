@@ -18,8 +18,8 @@ class Jasa extends MY_Controller
 
     public function create_jasa()
     {
-        $this->form_validation->set_rules('KODE', 'KODE', 'trim|required');
-        $this->form_validation->set_rules('KETERANGAN', 'KETERANGAN', 'trim|required');
+        $this->form_validation->set_rules('KODE', 'Kode', 'trim|required');
+        $this->form_validation->set_rules('KETERANGAN', 'Keterangan', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'jasa/create');
@@ -60,7 +60,7 @@ class Jasa extends MY_Controller
         $result = json_decode($response->getBody()->getContents(), true);
         $result['data'] = $result['data'][0];
 
-        $this->form_validation->set_rules('KETERANGAN', 'KETERANGAN', 'trim|required');
+        $this->form_validation->set_rules('KETERANGAN', 'Keterangan', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'jasa/edit', $result);

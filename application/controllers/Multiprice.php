@@ -18,10 +18,10 @@ class Multiprice extends MY_Controller
 
     public function create_multiprice()
     {
-        $this->form_validation->set_rules('BARANG_ID', 'BARANG_ID', 'trim|required|numeric');
-        $this->form_validation->set_rules('HARGA_KE', 'HARGA_KE', 'trim|required|numeric');
-        $this->form_validation->set_rules('JUMLAH', 'JUMLAH', 'trim|required|numeric');
-        $this->form_validation->set_rules('HARGA_JUAL', 'HARGA_JUAL', 'trim|required|numeric');
+        $this->form_validation->set_rules('BARANG_ID', 'Kode Barang', 'trim|required|numeric');
+        $this->form_validation->set_rules('HARGA_KE', 'Harga Ke-', 'trim|required|numeric');
+        $this->form_validation->set_rules('JUMLAH', 'Jumlah', 'trim|required|numeric');
+        $this->form_validation->set_rules('HARGA_JUAL', 'Harga Jual', 'trim|required|numeric');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'multiprice/create');
@@ -64,7 +64,9 @@ class Multiprice extends MY_Controller
         $result = json_decode($response->getBody()->getContents(), true);
         $result['data'] = $result['data'][0];
 
-        $this->form_validation->set_rules('HARGA_KE', 'HARGA_KE', 'trim|required');
+        $this->form_validation->set_rules('HARGA_KE', 'Harga Ke-', 'trim|required|numeric');
+        $this->form_validation->set_rules('JUMLAH', 'Jumlah', 'trim|required|numeric');
+        $this->form_validation->set_rules('HARGA_JUAL', 'Harga Jual', 'trim|required|numeric');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'multiprice/edit', $result);

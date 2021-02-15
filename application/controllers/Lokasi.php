@@ -18,9 +18,9 @@ class Lokasi extends MY_Controller
 
     public function create_lok()
     {
-        $this->form_validation->set_rules('KODE', 'KODE', 'trim|required');
-        $this->form_validation->set_rules('KETERANGAN', 'KETERANGAN', 'trim|required');
-        $this->form_validation->set_rules('DEF', 'DEF', 'trim');
+        $this->form_validation->set_rules('KODE', 'Kode', 'trim|required');
+        $this->form_validation->set_rules('KETERANGAN', 'Keterangan', 'trim|required');
+        $this->form_validation->set_rules('DEF', 'Default', 'trim');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'lokasi/create');
@@ -62,8 +62,8 @@ class Lokasi extends MY_Controller
         $result = json_decode($response->getBody()->getContents(), true);
         $result['data'] = $result['data'][0];
 
-        $this->form_validation->set_rules('KETERANGAN', 'KETERANGAN', 'trim|required');
-        $this->form_validation->set_rules('DEF', 'DEF', 'trim');
+        $this->form_validation->set_rules('KETERANGAN', 'Keterangan', 'trim|required');
+        $this->form_validation->set_rules('DEF', 'Default', 'trim');
 
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'lokasi/edit', $result);

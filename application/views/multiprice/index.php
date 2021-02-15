@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Barang ID</th>
+                    <th>Kode Barang</th>
                     <th>Harga Ke</th>
                     <th>Jumlah</th>
                     <th>Harga Jual</th>

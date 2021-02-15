@@ -93,16 +93,16 @@
                                 <i class="fas fa-comments-dollar"> Transaksi</i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url('barang'); ?>">Pemasukan</a>
-                                <a class="dropdown-item" href="<?= base_url('biaya'); ?>">Pembelian</a>
-                                <a class="dropdown-item" href="<?= base_url('customer'); ?>">Pengeluaran</a>
-                                <a class="dropdown-item" href="<?= base_url('golongan'); ?>">Penjualan</a>
-                                <a class="dropdown-item" href="<?= base_url('jasa'); ?>">Pelunasan Hutang</a>
-                                <a class="dropdown-item" href="<?= base_url('lokasi'); ?>">Pembayaran Hutang</a>
-                                <a class="dropdown-item" href="<?= base_url('multiprice'); ?>">Retur Pembelian</a>
-                                <a class="dropdown-item" href="<?= base_url('salesman'); ?>">Retur Penjualan</a>
-                                <a class="dropdown-item" href="<?= base_url('sub_golongan'); ?>">Tanda Keluar Barang</a>
-                                <a class="dropdown-item" href="<?= base_url('supplier'); ?>">Tanda Terima Barang</a>
+                                <a class="dropdown-item" href="<?= base_url('pemasukan'); ?>">Pemasukan</a>
+                                <a class="dropdown-item" href="<?= base_url('pembelian'); ?>">Pembelian</a>
+                                <a class="dropdown-item" href="<?= base_url('pengeluaran'); ?>">Pengeluaran</a>
+                                <a class="dropdown-item" href="<?= base_url('penjualan'); ?>">Penjualan</a>
+                                <a class="dropdown-item" href="<?= base_url('pelunasan_hutang'); ?>">Pelunasan Hutang</a>
+                                <a class="dropdown-item" href="<?= base_url('pembayaran_hutang'); ?>">Pembayaran Hutang</a>
+                                <a class="dropdown-item" href="<?= base_url('retur_pembelian'); ?>">Retur Pembelian</a>
+                                <a class="dropdown-item" href="<?= base_url('retur_penjualan'); ?>">Retur Penjualan</a>
+                                <a class="dropdown-item" href="<?= base_url('barang_keluar'); ?>">Tanda Keluar Barang</a>
+                                <a class="dropdown-item" href="<?= base_url('barang_terima'); ?>">Tanda Terima Barang</a>
                             </div>
                         </li>
                         <li class="nav-item mr-2">
@@ -115,7 +115,7 @@
                     <!-- <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
+                    </form> -->
                 </div>
             </div>
         </nav>
