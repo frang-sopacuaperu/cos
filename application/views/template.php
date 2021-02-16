@@ -98,7 +98,7 @@
                                 <a class="dropdown-item" href="<?= base_url('pengeluaran'); ?>">Pengeluaran</a>
                                 <a class="dropdown-item" href="<?= base_url('penjualan'); ?>">Penjualan</a>
                                 <a class="dropdown-item" href="<?= base_url('pelunasan_hutang'); ?>">Pelunasan Hutang</a>
-                                <a class="dropdown-item" href="<?= base_url('pembayaran_hutang'); ?>">Pembayaran Hutang</a>
+                                <a class="dropdown-item" href="<?= base_url('pembayaran_piutang'); ?>">Pembayaran Piutang</a>
                                 <a class="dropdown-item" href="<?= base_url('retur_pembelian'); ?>">Retur Pembelian</a>
                                 <a class="dropdown-item" href="<?= base_url('retur_penjualan'); ?>">Retur Penjualan</a>
                                 <a class="dropdown-item" href="<?= base_url('barang_keluar'); ?>">Tanda Keluar Barang</a>
