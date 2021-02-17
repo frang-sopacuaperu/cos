@@ -52,6 +52,7 @@
                             <td><?= $barang['GOLONGAN_ID']; ?>/<?= $barang['SUB_GOLONGAN_ID']; ?></td>
                             <td>
                                 <a href="<?= base_url('barang/edit_barang/') . $barang['KODE']; ?>"><button class="btn btn-primary my-2">Edit</button></a>
+                                <a href="<?= base_url('multiprice/edit_multiprice/') . $barang['KODE']; ?>"><button class="btn btn-warning my-2">Multiprice</button></a>
                                 <a href="<?= base_url('barang/delete_barang/') . $barang['KODE']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>
