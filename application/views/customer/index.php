@@ -43,7 +43,7 @@
                             <td><?= $customer['JATUH_TEMPO']; ?></td>
                             <td>Rp. <?= number_format($customer['PLAFON_PIUTANG'], 0, ',', '.'); ?></td>
                             <td>Rp. <?= number_format($customer['TOTAL_PIUTANG'], 0, ',', '.'); ?></td>
-                            <td><?= $customer['WILAYAH_ID']; ?></td>
+                            <td><?= $customer['KETERANGAN']; ?></td>
                             <td>
                                 <?php if ($customer['DEF'] == null) : {
                                         echo "0";

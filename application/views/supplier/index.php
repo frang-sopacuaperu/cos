@@ -42,7 +42,7 @@
                             <td><?= $supplier['JATUH_TEMPO']; ?></td>
                             <td>Rp. <?= number_format($supplier['PLAFON_HUTANG'], 0, ',', '.'); ?></td>
                             <td>Rp. <?= number_format($supplier['TOTAL_HUTANG'], 0, ',', '.'); ?></td>
-                            <td><?= $supplier['WILAYAH_ID']; ?></td>
+                            <td><?= $supplier['KETERANGAN']; ?></td>
                             <td><?= $supplier['DEF']; ?></td>
                             <td>
                                 <a href="<?= base_url('supplier/edit_supplier/') . $supplier['KODE']; ?>"><button class="btn btn-primary my-2">Edit</button></a>
