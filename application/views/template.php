@@ -71,7 +71,7 @@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="<?= base_url('dashboard') ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fab fa-keycdn"> Master</i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -123,8 +123,156 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row mt-5">
-                    <div class="col-md-12 col-xs-12 themed-grid-col">
+                    <div class="col-md-10 col-xs-12 themed-grid-col">
                         <?= $contents ?>
+                    </div>
+                    <div class="col-md-2 col-xs-12 themed-grid-col">
+                        <!-- Sidebar -->
+                        <div class="sidebar">
+                            <div class="card card-primary collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Master</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('barang'); ?>" class="nav-link active">
+                                                Barang
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('biaya'); ?>" class="nav-link active">
+                                                Biaya
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('customer'); ?>" class="nav-link active">
+                                                Customer
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('golongan'); ?>" class="nav-link active">
+                                                Golongan
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('jasa'); ?>" class="nav-link active">
+                                                Jasa
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('lokasi'); ?>" class="nav-link active">
+                                                Lokasi
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('multiprice'); ?>" class="nav-link active">
+                                                Multi Price
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('salesman'); ?>" class="nav-link active">
+                                                Salesman
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('sub_golongan'); ?>" class="nav-link active">
+                                                Sub Golongan
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('supplier'); ?>" class="nav-link active">
+                                                Supplier
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('wilayah'); ?>" class="nav-link active">
+                                                Wilayah
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+
+                            <div class="card card-primary collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Transaksi</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('pemasukan'); ?>" class="nav-link active">
+                                                Pemasukan
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('pembelian'); ?>" class="nav-link active">
+                                                Pembelian
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('pengeluaran'); ?>" class="nav-link active">
+                                                Pengeluaran
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('penjualan'); ?>" class="nav-link active">
+                                                Penjualan
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('pelunasan_hutang'); ?>" class="nav-link active">
+                                                Pelunasan Hutang
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('pembayaran_hutang'); ?>" class="nav-link active">
+                                                Pembayaran Hutang
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('retur_pembelian'); ?>" class="nav-link active">
+                                                Retur Pembelian
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('retur_penjualan'); ?>" class="nav-link active">
+                                                Retur Penjualan
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('barang_keluar'); ?>" class="nav-link active">
+                                                Tanda Keluar Barang
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('barang_terima'); ?>" class="nav-link active">
+                                                Tanda Terima Barang
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.sidebar-menu -->
+                        </div>
                     </div>
                 </div>
             </div>
