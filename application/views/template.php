@@ -83,6 +83,7 @@
                                 <a class="dropdown-item" href="<?= base_url('lokasi'); ?>">Lokasi</a>
                                 <a class="dropdown-item" href="<?= base_url('multiprice'); ?>">Multi Price</a>
                                 <a class="dropdown-item" href="<?= base_url('salesman'); ?>">Salesman</a>
+                                <a class="dropdown-item" href="<?= base_url('satuan'); ?>">Satuan</a>
                                 <a class="dropdown-item" href="<?= base_url('sub_golongan'); ?>">Sub Golongan</a>
                                 <a class="dropdown-item" href="<?= base_url('supplier'); ?>">Supplier</a>
                                 <a class="dropdown-item" href="<?= base_url('wilayah'); ?>">Wilayah</a>
@@ -181,6 +182,11 @@
                                         <li class="nav-item">
                                             <a href="<?= base_url('salesman'); ?>" class="nav-link active">
                                                 Salesman
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('satuan'); ?>" class="nav-link active">
+                                                Satuan
                                             </a>
                                         </li>
                                         <li class="nav-item">

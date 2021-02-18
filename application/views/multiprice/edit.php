@@ -218,7 +218,7 @@
 
 
             <button type="submit" class="btn btn-primary">Edit</button>
-            <a href="<?= base_url('multiprice') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
+            <a href="<?= base_url('barang') ?>"><button type="button" class="btn btn-secondary">Back</button></a>
         </div>
     </form>
 </div>

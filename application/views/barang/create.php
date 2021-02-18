@@ -58,84 +58,7 @@
                 </div>
             </div>
 
-            <div class="form-group d-flex">
-                <div class="col-sm-4">
-                    Satuan
-                </div>
-                <div class="col-sm-4">
-                </div>
-                <div class="col-sm-4">
-                    Harga Jual
-                </div>
-            </div>
 
-            <div class="form-group d-flex">
-                <div class="col-sm-0">1</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="SATUAN" id="SATUAN" value="<?= set_value('SATUAN') ?>">
-                    <small class=" form-text text-danger"><?= form_error('SATUAN'); ?></small>
-                </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="BIJI1" id="BIJI1" value="<?= set_value('BIJI1') ?>">
-                    <small class=" form-text text-danger"><?= form_error('BIJI1'); ?></small>
-                </div>
-                <div class="col-sm-0">1<span class="text-red">*</span></div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="HARGA_JUAL" id="HARGA_JUAL" value="<?= set_value('HARGA_JUAL') ?>">
-                    <small class=" form-text text-danger"><?= form_error('HARGA_JUAL'); ?></small>
-                </div>
-            </div>
-
-            <div class="form-group d-flex">
-                <div class="col-sm-0">2</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="SATUAN2" id="SATUAN2" value="<?= set_value('SATUAN2') ?>">
-                    <small class=" form-text text-danger"><?= form_error('SATUAN2'); ?></small>
-                </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="BIJI2" id="BIJI2" value="<?= set_value('BIJI2') ?>">
-                    <small class=" form-text text-danger"><?= form_error('BIJI2'); ?></small>
-                </div>
-                <div class="col-sm-0">2</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-            </div>
-
-            <div class="form-group d-flex">
-                <div class="col-sm-0">3</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="SATUAN3" id="SATUAN3" value="<?= set_value('SATUAN3') ?>">
-                    <small class=" form-text text-danger"><?= form_error('SATUAN3'); ?></small>
-                </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="BIJI3" id="BIJI3" value="<?= set_value('BIJI3') ?>">
-                    <small class=" form-text text-danger"><?= form_error('BIJI3'); ?></small>
-                </div>
-                <div class="col-sm-0">3</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-            </div>
-
-            <div class="form-group d-flex">
-                <div class="col-sm-0">4</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="SATUAN4" id="SATUAN4" value="<?= set_value('SATUAN4') ?>">
-                    <small class=" form-text text-danger"><?= form_error('SATUAN4'); ?></small>
-                </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="BIJI4" id="BIJI4" value="<?= set_value('BIJI4') ?>">
-                    <small class=" form-text text-danger"><?= form_error('BIJI4'); ?></small>
-                </div>
-                <div class="col-sm-0">4</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-            </div>
 
             <div class="form-group d-flex">
                 <div class="col-sm-6">
@@ -223,11 +146,6 @@
             </div>
 
             <div class="form-group d-flex">
-                <div class="form-check mr-4">
-                    <input type="checkbox" class="form-check-input" name="IS_UPDATE_HARGA_JUAL" id="IS_UPDATE_HARGA_JUAL" value="1" checked>
-                    <label class="form-check-label" for="IS_UPDATE_HARGA_JUAL">Boleh Ganti Harga Jual</label>
-                    <small class=" form-text text-danger"><?= form_error('IS_UPDATE_HARGA_JUAL'); ?></small>
-                </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="IS_WAJIB_ISI_IMEI" id="IS_WAJIB_ISI_IMEI" value="1" checked>
                     <label class="form-check-label" for="IS_WAJIB_ISI_IMEI">Wajib Isi IMEI</label>

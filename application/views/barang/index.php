@@ -28,7 +28,6 @@
                     <th>Stok Min</th>
                     <th>Stok Max</th>
                     <th>Harga Beli</th>
-                    <th>Harga Jual</th>
                     <th>Garansi</th>
                     <th>Golongan/Sub Golongan</th>
                     <th>Aksi</th>
@@ -47,12 +46,10 @@
                             <td><?= $barang['MIN_STOK']; ?></td>
                             <td><?= $barang['MAX_STOK']; ?></td>
                             <td>Rp. <?= number_format($barang['HARGA_BELI'], 0, ',', '.'); ?></td>
-                            <td>Rp. <?= number_format($barang['HARGA_JUAL'], 0, ',', '.'); ?></td>
                             <td><?= $barang['GARANSI']; ?></td>
-                            <td><?= $barang['GOLONGAN_ID']; ?>/<?= $barang['SUB_GOLONGAN_ID']; ?></td>
+                            <td><?= $barang['ket_gol']; ?>/<?= $barang['ket_subgol']; ?></td>
                             <td>
                                 <a href="<?= base_url('barang/edit_barang/') . $barang['KODE']; ?>"><button class="btn btn-primary my-2">Edit</button></a>
-                                <a href="<?= base_url('multiprice/edit_multiprice/') . $barang['KODE']; ?>"><button class="btn btn-warning my-2">Multiprice</button></a>
                                 <a href="<?= base_url('barang/delete_barang/') . $barang['KODE']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>

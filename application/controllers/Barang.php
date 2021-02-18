@@ -41,13 +41,10 @@ class Barang extends MY_Controller
 
         $this->form_validation->set_rules('KODE', 'Kode Barang', 'trim|required|numeric');
         $this->form_validation->set_rules('NAMA', 'Nama', 'trim|required|min_length[3]');
-        $this->form_validation->set_rules('SATUAN', 'Satuan', 'trim');
         $this->form_validation->set_rules('STOK', 'Stok', 'trim|required|numeric');
         $this->form_validation->set_rules('MIN_STOK', 'Stok Minimal', 'trim|required|numeric');
         $this->form_validation->set_rules('MAX_STOK', 'Stok Maksimal', 'trim|required|numeric');
         $this->form_validation->set_rules('HARGA_BELI', 'Harga Beli', 'trim|required|numeric');
-        $this->form_validation->set_rules('HARGA_JUAL', 'Harga Jual', 'trim|required|numeric');
-        $this->form_validation->set_rules('IS_UPDATE_HARGA_JUAL', 'Boleh Update Harga Jual', 'trim');
         $this->form_validation->set_rules('GOLONGAN_ID', 'Golongan', 'trim|required');
         $this->form_validation->set_rules('LOKASI_ID', 'Lokasi', 'trim|required');
         $this->form_validation->set_rules('SUPPLIER_ID', 'Supplier', 'trim|required');
@@ -55,13 +52,6 @@ class Barang extends MY_Controller
         $this->form_validation->set_rules('GARANSI', 'Garansi', 'trim');
         $this->form_validation->set_rules('SUB_GOLONGAN_ID', 'Sub Golongan', 'trim|required');
         $this->form_validation->set_rules('KODE_BARCODE', 'Barcode', 'trim|required|numeric');
-        $this->form_validation->set_rules('BIJI1', 'Biji 1', 'trim|numeric');
-        $this->form_validation->set_rules('SATUAN2', 'Satuan 2', 'trim|numeric');
-        $this->form_validation->set_rules('BIJI2', 'Biji 2', 'trim|numeric');
-        $this->form_validation->set_rules('SATUAN3', 'Satuan 3', 'trim|numeric');
-        $this->form_validation->set_rules('BIJI3', 'Biji 3', 'trim|numeric');
-        $this->form_validation->set_rules('SATUAN4', 'Satuan 4', 'trim|numeric');
-        $this->form_validation->set_rules('BIJI4', 'Biji 4', 'trim|numeric');
         $this->form_validation->set_rules('TGL_TRANSAKSI', 'Tanggal Transaksi', 'trim');
         $this->form_validation->set_rules('DISKON_GENERAL', 'Diskon General', 'trim|numeric');
         $this->form_validation->set_rules('DISKON_SILVER', 'Diskon Silver', 'trim|numeric');
@@ -81,26 +71,16 @@ class Barang extends MY_Controller
                 'GOLONGAN_ID' => $this->input->post('GOLONGAN_ID'),
                 'SUB_GOLONGAN_ID' => $this->input->post('SUB_GOLONGAN_ID'),
                 'SUPPLIER_ID' => $this->input->post('SUPPLIER_ID'),
-                'SATUAN' => $this->input->post('SATUAN'),
-                'SATUAN2' => $this->input->post('SATUAN2'),
-                'SATUAN3' => $this->input->post('SATUAN3'),
-                'SATUAN4' => $this->input->post('SATUAN4'),
-                'BIJI1' => $this->input->post('BIJI1'),
-                'BIJI2' => $this->input->post('BIJI2'),
-                'BIJI3' => $this->input->post('BIJI3'),
-                'BIJI4' => $this->input->post('BIJI4'),
                 'STOK_AWAL' => $this->input->post('STOK_AWAL'),
                 'STOK' => $this->input->post('STOK'),
                 'DISKON_GENERAL' => $this->input->post('DISKON_GENERAL'),
                 'DISKON_SILVER' => $this->input->post('DISKON_SILVER'),
                 'DISKON_GOLD' => $this->input->post('DISKON_GOLD'),
                 'HARGA_BELI' => $this->input->post('HARGA_BELI'),
-                'HARGA_JUAL' => $this->input->post('HARGA_JUAL'),
                 'MIN_STOK' => $this->input->post('MIN_STOK'),
                 'MAX_STOK' => $this->input->post('MAX_STOK'),
                 'GARANSI' => $this->input->post('GARANSI'),
                 'POIN' => $this->input->post('POIN'),
-                'IS_UPDATE_HARGA_JUAL' => $this->input->post('IS_UPDATE_HARGA_JUAL'),
                 'IS_WAJIB_ISI_IMEI' => $this->input->post('IS_WAJIB_ISI_IMEI'),
                 'LOKASI_ID' => $this->input->post('LOKASI_ID'),
             ];
@@ -156,13 +136,10 @@ class Barang extends MY_Controller
         $result['lokasi'] = $lokasi['data'];
 
         $this->form_validation->set_rules('NAMA', 'Nama', 'trim|required|min_length[3]');
-        $this->form_validation->set_rules('SATUAN', 'Satuan', 'trim');
         $this->form_validation->set_rules('STOK', 'Stok', 'trim|required|numeric');
         $this->form_validation->set_rules('MIN_STOK', 'Stok Minimal', 'trim|required|numeric');
         $this->form_validation->set_rules('MAX_STOK', 'Stok Maksimal', 'trim|required|numeric');
         $this->form_validation->set_rules('HARGA_BELI', 'Harga Beli', 'trim|required|numeric');
-        $this->form_validation->set_rules('HARGA_JUAL', 'Harga Jual', 'trim|required|numeric');
-        $this->form_validation->set_rules('IS_UPDATE_HARGA_JUAL', 'Boleh Update Harga Jual', 'trim');
         $this->form_validation->set_rules('GOLONGAN_ID', 'Golongan', 'trim|required');
         $this->form_validation->set_rules('LOKASI_ID', 'Lokasi', 'trim|required');
         $this->form_validation->set_rules('SUPPLIER_ID', 'Supplier', 'trim|required');
@@ -170,13 +147,6 @@ class Barang extends MY_Controller
         $this->form_validation->set_rules('GARANSI', 'Garansi', 'trim');
         $this->form_validation->set_rules('SUB_GOLONGAN_ID', 'Sub Golongan', 'trim|required');
         $this->form_validation->set_rules('KODE_BARCODE', 'Barcode', 'trim|required|numeric');
-        $this->form_validation->set_rules('BIJI1', 'Biji 1', 'trim|numeric');
-        $this->form_validation->set_rules('SATUAN2', 'Satuan 2', 'trim|numeric');
-        $this->form_validation->set_rules('BIJI2', 'Biji 2', 'trim|numeric');
-        $this->form_validation->set_rules('SATUAN3', 'Satuan 3', 'trim|numeric');
-        $this->form_validation->set_rules('BIJI3', 'Biji 3', 'trim|numeric');
-        $this->form_validation->set_rules('SATUAN4', 'Satuan 4', 'trim|numeric');
-        $this->form_validation->set_rules('BIJI4', 'Biji 4', 'trim|numeric');
         $this->form_validation->set_rules('TGL_TRANSAKSI', 'Tanggal Transaksi', 'trim');
         $this->form_validation->set_rules('DISKON_GENERAL', 'Diskon General', 'trim|numeric');
         $this->form_validation->set_rules('DISKON_SILVER', 'Diskon Silver', 'trim|numeric');
@@ -198,26 +168,16 @@ class Barang extends MY_Controller
                     'GOLONGAN_ID' => $this->input->post('GOLONGAN_ID'),
                     'SUB_GOLONGAN_ID' => $this->input->post('SUB_GOLONGAN_ID'),
                     'SUPPLIER_ID' => $this->input->post('SUPPLIER_ID'),
-                    'SATUAN' => $this->input->post('SATUAN'),
-                    'SATUAN2' => $this->input->post('SATUAN2'),
-                    'SATUAN3' => $this->input->post('SATUAN3'),
-                    'SATUAN4' => $this->input->post('SATUAN4'),
-                    'BIJI1' => $this->input->post('BIJI1'),
-                    'BIJI2' => $this->input->post('BIJI2'),
-                    'BIJI3' => $this->input->post('BIJI3'),
-                    'BIJI4' => $this->input->post('BIJI4'),
                     'STOK_AWAL' => $this->input->post('STOK_AWAL'),
                     'STOK' => $this->input->post('STOK'),
                     'DISKON_GENERAL' => $this->input->post('DISKON_GENERAL'),
                     'DISKON_SILVER' => $this->input->post('DISKON_SILVER'),
                     'DISKON_GOLD' => $this->input->post('DISKON_GOLD'),
                     'HARGA_BELI' => $this->input->post('HARGA_BELI'),
-                    'HARGA_JUAL' => $this->input->post('HARGA_JUAL'),
                     'MIN_STOK' => $this->input->post('MIN_STOK'),
                     'MAX_STOK' => $this->input->post('MAX_STOK'),
                     'GARANSI' => $this->input->post('GARANSI'),
                     'POIN' => $this->input->post('POIN'),
-                    'IS_UPDATE_HARGA_JUAL' => $this->input->post('IS_UPDATE_HARGA_JUAL'),
                     'IS_WAJIB_ISI_IMEI' => $this->input->post('IS_WAJIB_ISI_IMEI'),
                     'LOKASI_ID' => $this->input->post('LOKASI_ID'),
                 ]

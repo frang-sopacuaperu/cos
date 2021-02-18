@@ -17,6 +17,7 @@
                 <tr>
                     <th>No.</th>
                     <th>Kode Barang</th>
+                    <th>Nama Barang</th>
                     <th>Harga Ke</th>
                     <th>Jumlah</th>
                     <th>Harga Jual</th>
@@ -30,6 +31,7 @@
                         <tr>
                             <td><?= $i; ?></td>
                             <td><?= $multiprice['BARANG_ID']; ?></td>
+                            <td><?= $multiprice['NAMA']; ?></td>
                             <td><?= $multiprice['HARGA_KE']; ?></td>
                             <td><?= $multiprice['JUMLAH']; ?></td>
                             <td>Rp. <?= number_format($multiprice['HARGA_JUAL'], 2, ',', '.'); ?></td>
