@@ -70,73 +70,29 @@
                 </div>
             </div>
 
+            <!-- //foreach -->
             <div class="form-group d-flex">
                 <div class="col-sm-0">1</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="">
-                    <small class=" form-text text-danger"><?= form_error('SATUAN'); ?></small>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="KODE_SATUAN[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
                 </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="">
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R1[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R2[]" id="">
                     <small class=" form-text text-danger"><?= form_error(''); ?></small>
                 </div>
                 <div class="col-sm-0">1<span class="text-red">*</span></div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="">
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="HARGA_JUAL[]" value="<?= set_value('HARGA_JUAL') ?>">
                     <small class=" form-text text-danger"><?= form_error(''); ?></small>
                 </div>
             </div>
 
-            <div class="form-group d-flex">
-                <div class="col-sm-0">2</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="<?= set_value('') ?>">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="<?= set_value('') ?>">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-                <div class="col-sm-0">2</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-            </div>
 
-            <div class="form-group d-flex">
-                <div class="col-sm-0">3</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="<?= set_value('') ?>">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="<?= set_value('') ?>">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-                <div class="col-sm-0">3</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-            </div>
-
-            <div class="form-group d-flex">
-                <div class="col-sm-0">4</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="<?= set_value('') ?>">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="<?= set_value('') ?>">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-                <div class="col-sm-0">4</div>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="" id="" value="">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
-                </div>
-            </div>
 
 
             <div class="form-group d-flex">
