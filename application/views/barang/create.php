@@ -7,8 +7,8 @@
                 <div class="col-sm-10">
                     <select name="GOLONGAN_ID" id="GOLONGAN_ID" class="form-control">
                         <option value="">Pilih Golongan</option>
-                        <?php foreach ($golongan as $wil) : ?>
-                            <option value="<?= $wil['KODE'] ?>"><?= $wil['KODE'] ?> - <?= $wil['KETERANGAN'] ?></option>
+                        <?php foreach ($golongan as $lok) : ?>
+                            <option value="<?= $lok['KODE'] ?>"><?= $lok['KODE'] ?> - <?= $lok['KETERANGAN'] ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class=" form-text text-danger"><?= form_error('GOLONGAN_ID'); ?></small>
@@ -70,12 +70,18 @@
                 </div>
             </div>
 
+
             <!-- //foreach -->
             <div class="form-group d-flex">
                 <div class="col-sm-0">1</div>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="KODE_SATUAN[]" id="">
-                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                        <option value="">Pilih Satuan</option>
+                        <?php foreach ($satuan as $sat) : ?>
+                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
                 </div>
                 <div class="col-sm-3">
                     <input type="text" class="form-control" name="JUMLAH_R1[]" id="">
@@ -86,6 +92,81 @@
                     <small class=" form-text text-danger"><?= form_error(''); ?></small>
                 </div>
                 <div class="col-sm-0">1<span class="text-red">*</span></div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="HARGA_JUAL[]" value="<?= set_value('HARGA_JUAL') ?>">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+            </div>
+            <div class="form-group d-flex">
+                <div class="col-sm-0">2</div>
+                <div class="col-sm-3">
+                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                        <option value="">Pilih Satuan</option>
+                        <?php foreach ($satuan as $sat) : ?>
+                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R1[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R2[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+                <div class="col-sm-0">2<span class="text-red">*</span></div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="HARGA_JUAL[]" value="<?= set_value('HARGA_JUAL') ?>">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+            </div>
+            <div class="form-group d-flex">
+                <div class="col-sm-0">3</div>
+                <div class="col-sm-3">
+                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                        <option value="">Pilih Satuan</option>
+                        <?php foreach ($satuan as $sat) : ?>
+                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R1[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R2[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+                <div class="col-sm-0">3<span class="text-red">*</span></div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="HARGA_JUAL[]" value="<?= set_value('HARGA_JUAL') ?>">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+            </div>
+            <div class="form-group d-flex">
+                <div class="col-sm-0">4</div>
+                <div class="col-sm-3">
+                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                        <option value="">Pilih Satuan</option>
+                        <?php foreach ($satuan as $sat) : ?>
+                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R1[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="JUMLAH_R2[]" id="">
+                    <small class=" form-text text-danger"><?= form_error(''); ?></small>
+                </div>
+                <div class="col-sm-0">4<span class="text-red">*</span></div>
                 <div class="col-sm-3">
                     <input type="text" class="form-control" name="HARGA_JUAL[]" value="<?= set_value('HARGA_JUAL') ?>">
                     <small class=" form-text text-danger"><?= form_error(''); ?></small>
