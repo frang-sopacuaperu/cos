@@ -75,10 +75,10 @@
             <div class="form-group d-flex">
                 <div class="col-sm-0">1</div>
                 <div class="col-sm-3">
-                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                    <select name="KODE_SATUAN[]" class="form-control">
                         <option value="">Pilih Satuan</option>
                         <?php foreach ($satuan as $sat) : ?>
-                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                            <option value="<?= $sat['KODE'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
@@ -100,10 +100,10 @@
             <div class="form-group d-flex">
                 <div class="col-sm-0">2</div>
                 <div class="col-sm-3">
-                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                    <select name="KODE_SATUAN[]" class="form-control">
                         <option value="">Pilih Satuan</option>
                         <?php foreach ($satuan as $sat) : ?>
-                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                            <option value="<?= $sat['KODE'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
@@ -125,10 +125,10 @@
             <div class="form-group d-flex">
                 <div class="col-sm-0">3</div>
                 <div class="col-sm-3">
-                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                    <select name="KODE_SATUAN[]" class="form-control">
                         <option value="">Pilih Satuan</option>
                         <?php foreach ($satuan as $sat) : ?>
-                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                            <option value="<?= $sat['KODE'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
@@ -150,10 +150,10 @@
             <div class="form-group d-flex">
                 <div class="col-sm-0">4</div>
                 <div class="col-sm-3">
-                    <select name="KODE_SATUAN" id="KODE_SATUAN" class="form-control">
+                    <select name="KODE_SATUAN[]" class="form-control">
                         <option value="">Pilih Satuan</option>
                         <?php foreach ($satuan as $sat) : ?>
-                            <option value="<?= $sat['KONVERSI'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
+                            <option value="<?= $sat['KODE'] ?>"><?= $sat['KONVERSI'] ?> - <?= $sat['NAMA'] ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class=" form-text text-danger"><?= form_error('KODE_SATUAN'); ?></small>
