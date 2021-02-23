@@ -16,10 +16,11 @@
             <thead>
                 <tr>
                     <th>No.</th>
+                    <th>Kode Satuan</th>
                     <th>Kode Barang</th>
-                    <th>Nama Barang</th>
                     <th>Harga Ke</th>
-                    <th>Jumlah</th>
+                    <th>Jumlah R1</th>
+                    <th>Jumlah R2</th>
                     <th>Harga Jual</th>
                     <th>Aksi</th>
                 </tr>
@@ -30,11 +31,12 @@
                     <?php foreach ($data as $multiprice) : ?>
                         <tr>
                             <td><?= $i; ?></td>
+                            <td><?= $multiprice['KODE_SATUAN']; ?></td>
                             <td><?= $multiprice['BARANG_ID']; ?></td>
-                            <td><?= $multiprice['NAMA']; ?></td>
                             <td><?= $multiprice['HARGA_KE']; ?></td>
-                            <td><?= $multiprice['JUMLAH']; ?></td>
-                            <td>Rp. <?= number_format($multiprice['HARGA_JUAL'], 2, ',', '.'); ?></td>
+                            <td><?= $multiprice['JUMLAH_R1']; ?></td>
+                            <td><?= $multiprice['JUMLAH_R2']; ?></td>
+                            <td><?= $multiprice['HARGA_JUAL']; ?></td>
                             <td>
                                 <a href="<?= base_url('multiprice/edit_multiprice/') . $multiprice['BARANG_ID']; ?>"><button class="btn btn-primary">Edit</button></a>
                                 <a href="<?= base_url('multiprice/delete_multiprice/') . $multiprice['BARANG_ID']; ?>" onclick="return confirm('Yakin hapus ini?')"><button class="btn btn-danger">Delete</button></a>

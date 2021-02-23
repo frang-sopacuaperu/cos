@@ -144,6 +144,10 @@ class Barang extends MY_Controller
 
         $lokasi = json_decode($response->getBody()->getContents(), true);
 
+        $response = $this->_client->request('GET', 'satuan');
+
+        $satuan = json_decode($response->getBody()->getContents(), true);
+
         $response = $this->_client->request('GET', 'barang', [
             'query' => [
                 'KODE' => $kode
@@ -156,6 +160,7 @@ class Barang extends MY_Controller
         $result['subgolongan'] = $subgolongan['data'];
         $result['supplier'] = $supplier['data'];
         $result['lokasi'] = $lokasi['data'];
+        $result['satuan'] = $satuan['data'];
 
         $this->form_validation->set_rules('NAMA', 'Nama', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('STOK', 'Stok', 'trim|required|numeric');
@@ -202,20 +207,37 @@ class Barang extends MY_Controller
                     'POIN' => $this->input->post('POIN'),
                     'IS_WAJIB_ISI_IMEI' => $this->input->post('IS_WAJIB_ISI_IMEI'),
                     'LOKASI_ID' => $this->input->post('LOKASI_ID'),
+                    'KODE_SATUAN' => $this->input->post('KODE_SATUAN'),
+                    'HARGA_JUAL' => $this->input->post('HARGA_JUAL'),
+                    'HARGA_KE' => 1,
+                    'JUMLAH_R1' => $this->input->post('JUMLAH_R1'),
+                    'JUMLAH_R2' => $this->input->post('JUMLAH_R2'),
                 ]
             ]);
 
-            json_decode($response->getBody()->getContents(), true);
+            $result = json_decode($response->getBody()->getContents(), true);
 
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Barang </strong> berhasil diedit!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>'
-            );
+            if ($result['status']) {
+                $this->session->set_flashdata(
+                    'message',
+                    '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>' . $result['message'] . '</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>'
+                );
+            } else {
+                $this->session->set_flashdata(
+                    'message',
+                    '<div class="alert alert-error alert-dismissible fade show" role="alert">
+                    <strong>' . $result['message'] . '</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>'
+                );
+            }
             redirect('barang');
         }
     }
@@ -228,16 +250,29 @@ class Barang extends MY_Controller
             ]
         ]);
 
-        json_decode($response->getBody()->getContents(), true);
-        $this->session->set_flashdata(
-            'message',
-            '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Barang terhapus!</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>'
-        );
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        if ($result['status']) {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>' . $result['message'] . '</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>'
+            );
+        } else {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-error alert-dismissible fade show" role="alert">
+                    <strong>' . $result['message'] . '</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>'
+            );
+        }
         redirect('barang');
     }
 }
